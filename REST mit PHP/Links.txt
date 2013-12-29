@@ -1,0 +1,10 @@
+http://www.gen-x-design.com/archives/create-a-rest-api-with-php/
+
+http://www.phpmonkeys.de/2012/01/12/restful-webservices-mit-php/
+http://www.slimframework.com/
+
+http://blog.programmableweb.com/2011/09/23/short-list-of-restful-api-frameworks-for-php/
+
+
+SLIM-Framework in Verbindung mit RedBean
+http://www.ibm.com/developerworks/opensource/library/x-slim-rest/index.html
