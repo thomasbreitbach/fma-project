@@ -1,9 +1,9 @@
 //
 //  Entry.m
-//  CoreData
+//  diary
 //
-//  Created by Müller on 15.12.13.
-//  Copyright (c) 2013 FMA. All rights reserved.
+//  Created by Medien on 15.01.14.
+//  Copyright (c) 2014 FMA. All rights reserved.
 //
 
 #import "Entry.h"
@@ -19,8 +19,7 @@
 @dynamic picID;
 @dynamic text;
 @dynamic title;
+@dynamic id;
 @dynamic bookID;
-
-@synthesize image;
 
 @end
