@@ -10,10 +10,13 @@
 #import "Entry.h"
 #import "AppDelegate.h"
 
+#define TEST_URL @"http://projects.drewiss.de/fma/rest/books/1/entries"
+
 @interface ListViewController ()
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic,strong)NSMutableArray *entries;
+@property (nonatomic, copy) NSArray *items;
 
 @end
 
@@ -44,6 +47,7 @@
     [super viewDidLoad];
     
     [self.tableView setDelegate:self];
+    self.getItems;
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
@@ -195,5 +199,17 @@
 }
 
  */
+
+-(void)getItems {
+    NSURL *url = [[NSURL alloc] initWithString:TEST_URL];
+    NSData *theData = [NSData dataWithContentsOfURL:url];
+    NSError *theError = nil;
+    NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
+    
+    if(theError == nil){
+        self.items = [theResult valueForKeyPath:@""];
+        NSLog(@"My dictionary is %@",theResult);
+    }
+}
 
 @end
