@@ -60,6 +60,7 @@
                                                      inManagedObjectContext:self.managedObjectContext];
         entry.title = [NSString stringWithFormat:@"Title %d", i];
         entry.date = [NSDate date];
+        entry.id = [[NSUUID UUID] UUIDString];
         entry.image = @"Tagebuch.jpg";
         
         [_entries addObject:entry];

@@ -22,4 +22,6 @@
 @dynamic id;
 @dynamic bookID;
 
+@synthesize image;
+
 @end
