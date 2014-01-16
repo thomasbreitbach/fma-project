@@ -23,6 +23,7 @@
 		4596CF3D186F2763006EC4E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4596CF3B186F2763006EC4E9 /* InfoPlist.strings */; };
 		4596CF3F186F2763006EC4E9 /* diaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4596CF3E186F2763006EC4E9 /* diaryTests.m */; };
 		4596CF49186F2790006EC4E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4596CF48186F2790006EC4E9 /* CoreData.framework */; };
+		459D772518869A1200732F4A /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D772418869A1200732F4A /* DetailsViewController.m */; };
 		45B8A388186F519B00BC0616 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B8A387186F519B00BC0616 /* ListViewController.m */; };
 		45B8A38D186F603400BC0616 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B8A38B186F603400BC0616 /* Entry.m */; };
 		45B8A38E186F603400BC0616 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B8A38C186F603400BC0616 /* Book.m */; };
@@ -64,6 +65,8 @@
 		4596CF3C186F2763006EC4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4596CF3E186F2763006EC4E9 /* diaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diaryTests.m; sourceTree = "<group>"; };
 		4596CF48186F2790006EC4E9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		459D772318869A1200732F4A /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		459D772418869A1200732F4A /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		45B8A386186F519B00BC0616 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		45B8A387186F519B00BC0616 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		45B8A389186F603400BC0616 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				4596CF26186F2763006EC4E9 /* NewEntryController.m */,
 				4596CF28186F2763006EC4E9 /* SecondViewController.h */,
 				4596CF29186F2763006EC4E9 /* SecondViewController.m */,
+				459D772318869A1200732F4A /* DetailsViewController.h */,
+				459D772418869A1200732F4A /* DetailsViewController.m */,
 				4596CF2B186F2763006EC4E9 /* Images.xcassets */,
 				4596CF17186F2763006EC4E9 /* Supporting Files */,
 			);
@@ -290,6 +295,7 @@
 				4596CF21186F2763006EC4E9 /* AppDelegate.m in Sources */,
 				4596CF27186F2763006EC4E9 /* NewEntryController.m in Sources */,
 				45B8A38E186F603400BC0616 /* Book.m in Sources */,
+				459D772518869A1200732F4A /* DetailsViewController.m in Sources */,
 				4596CF1D186F2763006EC4E9 /* main.m in Sources */,
 				45B8A390186F723600BC0616 /* Book.xcdatamodel in Sources */,
 			);

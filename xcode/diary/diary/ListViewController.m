@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "DetailsViewController.h"
 #import "Entry.h"
 #import "AppDelegate.h"
 
@@ -141,8 +142,38 @@
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
-    [alert show];
+    //[alert show];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Declare the view controller
+    DetailsViewController *detailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    
+    
+    
+    // Get cell textLabel string to use in new view controller title
+    NSString *cellTitleText = [[_entries objectAtIndex:indexPath.row]title];
+    
+    // Get object at the tapped cell index from table data source array to display in title
+    //id tappedObj = [sitesArray objectAtIndex:indexPath.row];
+    
+    // Set title indicating what row/section was tapped
+    [detailsVC setTitle:[NSString stringWithFormat:@"%@", cellTitleText]];
+    
+    // present it modally (not necessary, but sometimes looks better then pushing it onto the stack - depending on your App)
+    [detailsVC setModalPresentationStyle:UIModalPresentationFormSheet];
+    
+    // Have the transition do a horizontal flip - my personal fav
+    [detailsVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    // The method `presentModalViewController:animated:` is depreciated in iOS 6 so use `presentViewController:animated:completion:` instead.
+    //[self.navigationController presentViewController:detailsVC animated:YES completion:NULL];
+    
+    [self.navigationController pushViewController:detailsVC animated:YES];
+
+    
+    
+    
+    
 }
 
 /*

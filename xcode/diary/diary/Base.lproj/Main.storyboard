@@ -94,7 +94,35 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826" y="13"/>
+            <point key="canvasLocation" x="1352" y="13"/>
+        </scene>
+        <!--Details View Controller - Title-->
+        <scene sceneID="2XZ-aO-UWL">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" id="5Iy-vR-vFS" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G2O-aE-CsO"/>
+                        <viewControllerLayoutGuide type="bottom" id="MC4-GA-kP7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jmf-cr-t25">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Foo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bm-GZ-JT1">
+                                <rect key="frame" x="131" y="273" width="30" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="3dp-nI-IzE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRh-yT-RIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-121" y="560"/>
         </scene>
         <!--List View Controller - ListViewController-->
         <scene sceneID="arI-Vh-199">
@@ -140,11 +168,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="6jI-XC-TSV" id="qGW-3w-CwA"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Liste" id="JAl-tR-fbr"/>
+                    <navigationItem key="navigationItem" id="Bt6-rf-bWs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4K6-aq-VkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337" y="21"/>
+            <point key="canvasLocation" x="784" y="382"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="ot8-2e-RuS">
@@ -201,7 +229,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="6jI-XC-TSV" kind="relationship" relationship="viewControllers" id="xTD-9l-woj"/>
+                        <segue destination="XVj-rW-A5W" kind="relationship" relationship="viewControllers" id="xTD-9l-woj"/>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
                     </connections>
@@ -209,6 +237,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-64" y="-324"/>
+        </scene>
+        <!--Navigation Controller - Liste-->
+        <scene sceneID="R9j-iO-l1F">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XVj-rW-A5W" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Liste" id="JAl-tR-fbr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gbe-a0-ZVF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6jI-XC-TSV" kind="relationship" relationship="rootViewController" id="PhY-ee-Soa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUd-o9-bbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="160"/>
         </scene>
     </scenes>
     <resources>
