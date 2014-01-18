@@ -10,6 +10,7 @@
 
 @interface DetailsViewController ()
 
+
 @end
 
 @implementation DetailsViewController
@@ -27,6 +28,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSLog(@"%@",self.mood);
+    NSLog(@"%@",self.date);
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -173,9 +173,14 @@
     // The method `presentModalViewController:animated:` is depreciated in iOS 6 so use `presentViewController:animated:completion:` instead.
     //[self.navigationController presentViewController:detailsVC animated:YES completion:NULL];
     
-    [self.navigationController pushViewController:detailsVC animated:YES];
-
+    detailsVC.mood = @"MOOD test";
     
+    NSDateFormatter *formatter;
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    detailsVC.date = [formatter stringFromDate:[[_entries objectAtIndex:indexPath.row]date]];
+    
+    [self.navigationController pushViewController:detailsVC animated:YES];  
     
     
     
@@ -231,9 +236,14 @@
 }
 
  */
+- (IBAction)newEntry:(UIBarButtonItem *)sender {
+    
+    // TODO: NewEntry Controller aufrufen
+    
+}
 
 -(void)getItems {
-    NSURL *url = [[NSURL alloc] initWithString:TEST_URL];
+    /*NSURL *url = [[NSURL alloc] initWithString:TEST_URL];
     NSData *theData = [NSData dataWithContentsOfURL:url];
     NSError *theError = nil;
     NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
@@ -242,6 +252,7 @@
         self.items = [theResult valueForKeyPath:@""];
         NSLog(@"My dictionary is %@",theResult);
     }
+     */
 }
 
 @end

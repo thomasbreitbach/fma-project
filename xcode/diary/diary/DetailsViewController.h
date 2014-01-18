@@ -10,4 +10,10 @@
 
 @interface DetailsViewController : UIViewController
 
+@property (weak, nonatomic) NSString *mood;
+@property (weak, nonatomic) NSString *date;
+@property (weak, nonatomic) UIImage *image;
+@property (weak, nonatomic) NSString *text;
+
+
 @end
