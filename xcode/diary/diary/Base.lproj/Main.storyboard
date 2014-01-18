@@ -116,9 +116,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Datum" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XZ-9B-qfb">
-                                <rect key="frame" x="181" y="84" width="119" height="21"/>
+                                <rect key="frame" x="168" y="84" width="132" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stimmung" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39U-gG-2WY">
@@ -144,10 +144,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <barButtonItem key="rightBarButtonItem" title="Bearbeiten" style="plain" id="JUS-su-fGc"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="date" destination="5XZ-9B-qfb" id="K2P-BM-MNn"/>
-                        <outlet property="image" destination="yVX-9B-fSv" id="eMG-XD-Cs1"/>
-                        <outlet property="mood" destination="39U-gG-2WY" id="QLV-sy-MOZ"/>
-                        <outlet property="text" destination="4nv-Ow-iJh" id="VZN-TI-HKa"/>
+                        <outlet property="date" destination="5XZ-9B-qfb" id="uwz-aA-mlq"/>
+                        <outlet property="image" destination="yVX-9B-fSv" id="dPq-aT-cKM"/>
+                        <outlet property="mood" destination="39U-gG-2WY" id="Dn5-mx-kaj"/>
+                        <outlet property="text" destination="4nv-Ow-iJh" id="fsR-BQ-UcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRh-yT-RIE" userLabel="First Responder" sceneMemberID="firstResponder"/>

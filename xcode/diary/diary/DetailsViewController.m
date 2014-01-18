@@ -10,6 +10,10 @@
 
 @interface DetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *mood;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *date;
+@property (weak, nonatomic) IBOutlet UILabel *text;
 
 @end
 
@@ -28,8 +32,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"%@",self.mood);
-    NSLog(@"%@",self.date);
+    NSLog(@"%@",self.moodT);
+    NSLog(@"%@",self.dateT);
+    
+    self.mood.text = self.moodT;
+    self.date.text = self.dateT;
+    
 
 }
 
