@@ -37,6 +37,12 @@
     
     self.mood.text = self.moodT;
     self.date.text = self.dateT;
+    self.text.text = self.textT;
+    
+    [self.text setNumberOfLines:0];
+    //self.text.frame = CGRectMake(20,20,200,800);
+    [self.text sizeToFit];
+    
     
 
 }

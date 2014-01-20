@@ -180,6 +180,8 @@
     [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
     detailsVC.dateT = [formatter stringFromDate:[[_entries objectAtIndex:indexPath.row]date]];
     
+    detailsVC.textT = @"ein ganz langer text der vll über mehrer zeilen geht ein ganz langer text der vll über mehrer zeilen geht";
+    
     [self.navigationController pushViewController:detailsVC animated:YES];  
     
     
