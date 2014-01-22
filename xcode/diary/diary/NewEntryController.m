@@ -9,6 +9,11 @@
 #import "NewEntryController.h"
 
 @interface NewEntryController ()
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UIView *rootview;
+@property (strong, nonatomic) IBOutlet UIView *subView;
+@property (strong, nonatomic) IBOutlet UITextField *titleInput;
+@property (strong, nonatomic) IBOutlet UITextView *textInput;
 
 @end
 
@@ -16,8 +21,30 @@
 
 - (void)viewDidLoad
 {
+    
+    float fH = self.view.frame.size.height;
+    float fW = self.view.frame.size.width;
+    float ofH = 800;
+    
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self.view endEditing:YES];
+    
+    self.scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, fW, fH)];
+    self.scroll.pagingEnabled = false;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.scroll.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame)+20, 0);
+    self.rootview = [[UIView alloc] initWithFrame:CGRectMake(0,0,fW, ofH)];
+    
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    [self.scroll addGestureRecognizer:singleTap];
+    
+    [self.titleInput setText:@"Hello"];
+    [self.titleInput resignFirstResponder];
+    
+    [self.scroll addSubview:self.subView];
+    self.scroll.contentSize = CGSizeMake(fW, ofH);
+    [self.view addSubview:self.scroll];
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +53,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
+{
+    [self.titleInput resignFirstResponder];
+    [self.textInput resignFirstResponder];
+    
+}
 @end
