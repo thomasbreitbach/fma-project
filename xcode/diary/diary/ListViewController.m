@@ -176,14 +176,14 @@
     // The method `presentModalViewController:animated:` is depreciated in iOS 6 so use `presentViewController:animated:completion:` instead.
     //[self.navigationController presentViewController:detailsVC animated:YES completion:NULL];
     
-    detailsVC.moodT = @"MOOD test";
+    detailsVC.moodT = [[[_entries objectAtIndex:indexPath.row]mood]stringValue];
     
     NSDateFormatter *formatter;
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
     detailsVC.dateT = [formatter stringFromDate:[[_entries objectAtIndex:indexPath.row]date]];
     
-    detailsVC.textT = @"ein ganz langer text der vll über mehrer zeilen geht ein ganz langer text der vll über mehrer zeilen geht";
+    detailsVC.textT = [[_entries objectAtIndex:indexPath.row]text];
     
     [self.navigationController pushViewController:detailsVC animated:YES];  
     
