@@ -11,7 +11,9 @@
 @interface RemoteSynchronous : NSObject
 
 -(id)init;
--(NSDictionary *)getBook:(NSString *)bookId;
--(NSDictionary *)getEntries:(NSString *)bookId;
+-(NSArray *)getBook:(NSString *)bookId;
+-(NSArray *)getEntries:(NSString *)bookId;
+-(NSArray *)getEntry:(NSString *)bookId :(NSString *) entryId;
+
 
 @end

@@ -10,7 +10,7 @@
 #import "DetailsViewController.h"
 #import "Entry.h"
 #import "AppDelegate.h"
-#import "Remote.h"
+#import "RemoteSynchronous.h"
 #import "CoreDataWrapper.h"
 
 #define TEST_URL @"http://projects.drewiss.de/fma/rest/books/1/entries"
@@ -258,7 +258,7 @@
         NSLog(@"My dictionary is %@",theResult);
     }
      */
-    Remote *remote = [[Remote alloc] init];
+    RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
     NSArray *d = [remote getEntries:@"1"];
     CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
     _entries = [cdw getCoreDataObjsFor:d];     
