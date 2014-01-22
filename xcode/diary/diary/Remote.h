@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Remote : NSObject
+@interface Remote : NSObject<NSURLConnectionDataDelegate>
 
 -(id)init;
--(NSDictionary *)getBook:(NSString *)bookId;
--(NSDictionary *)getEntries:(NSString *)bookId;
+-(void)getBook:(NSString *)bookId;
+-(void)getEntries:(NSString *)bookId;
+-(void)getEntry:(NSString *)bookId :(NSString *) entryId;
 
 @end
