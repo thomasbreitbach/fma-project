@@ -49,26 +49,12 @@ NSMutableData *_responseData;
 }
 
 
-
 /*
  *  GET REQUESTS
  */
 -(void) get:(NSURL *)url{
     NSURLRequest *theRequest = [NSURLRequest requestWithURL:url];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    
-    
-    /* SYNCHRONOUS FLOW
-    NSData *theData = [NSData dataWithContentsOfURL:url];
-    NSError *theError = nil;
-    NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
-    
-    if(theError == nil){
-        return theResult;
-    }else{
-        NSLog(@"get-request to %@ error:%@", url, theError);
-        return nil;
-    }*/
 }
 
 -(void)getBook:(NSString *)bookId{
@@ -77,6 +63,7 @@ NSMutableData *_responseData;
     
     [self get:url];
 }
+
 
 -(void)getEntries:(NSString *)bookId{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@", BASE_URL, BOOKS, bookId, ENTRIES];

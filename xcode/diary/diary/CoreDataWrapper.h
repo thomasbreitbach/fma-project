@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface CoreDataWrapper : NSObject
-
+-(NSMutableArray*)getCoreDataObjsFor:(NSArray *)dictionary;
 @end
