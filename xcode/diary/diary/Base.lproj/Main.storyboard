@@ -83,9 +83,33 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ecS-Ot-h90">
-                                                <rect key="frame" x="20" y="502" width="128" height="128"/>
+                                                <rect key="frame" x="22" y="508" width="60" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="rhappy.png">
+                                                <state key="normal" title="superHappy" image="rhappy.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeMood:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="Mh9-Pn-cV2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zTA-0C-FNp">
+                                                <rect key="frame" x="95" y="508" width="60" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="happy" image="feelGood.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nsQ-Ph-lpL">
+                                                <rect key="frame" x="169" y="508" width="60" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="sad" image="sad.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3qS-yv-s3v">
+                                                <rect key="frame" x="242" y="508" width="60" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="superSad" image="crying.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -106,9 +130,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <tabBarItem key="tabBarItem" title="Add" id="u1e-5L-l1D"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="happy" destination="zTA-0C-FNp" id="sE0-CJ-TKX"/>
                         <outlet property="rootview" destination="2VE-Yg-loa" id="bPT-ac-ef6"/>
+                        <outlet property="sad" destination="nsQ-Ph-lpL" id="Bqu-xM-A9o"/>
                         <outlet property="scroll" destination="Wem-oN-R53" id="I8a-9P-vi3"/>
                         <outlet property="subView" destination="TJJ-MA-QZf" id="19g-NM-URN"/>
+                        <outlet property="superHappy" destination="ecS-Ot-h90" id="1Qu-SF-045"/>
+                        <outlet property="superSad" destination="3qS-yv-s3v" id="Ift-Hj-bjC"/>
                         <outlet property="textInput" destination="NHo-xI-JnM" id="Ylm-zZ-Y5N"/>
                         <outlet property="titleInput" destination="xaI-AJ-QmL" id="PFM-9X-mET"/>
                     </connections>
@@ -292,7 +320,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
+        <image name="crying.png" width="128" height="128"/>
+        <image name="feelGood.png" width="128" height="128"/>
         <image name="rhappy.png" width="128" height="128"/>
+        <image name="sad.png" width="128" height="128"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

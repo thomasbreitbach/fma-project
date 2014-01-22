@@ -15,6 +15,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *titleInput;
 @property (strong, nonatomic) IBOutlet UITextView *textInput;
 
+@property (strong, nonatomic) IBOutlet UIButton *superHappy;
+@property (strong, nonatomic) IBOutlet UIButton *happy;
+@property (strong, nonatomic) IBOutlet UIButton *sad;
+@property (strong, nonatomic) IBOutlet UIButton *superSad;
+
 @end
 
 @implementation NewEntryController
@@ -58,6 +63,14 @@
 {
     [self.titleInput resignFirstResponder];
     [self.textInput resignFirstResponder];
+    
+}
+- (IBAction)changeMood:(id)sender {
+    NSLog(@"%@", [sender title]);
+    [self.superHappy setAlpha:1.0];
+    [self.happy setAlpha:0.5];
+    [self.sad setAlpha:0.5];
+    [self.superSad setAlpha:0.5];
     
 }
 @end
