@@ -269,6 +269,8 @@
     
     // TODO: hier ein update der Entries
     NSLog(@"Refresh and stop again");
+    [self getItems];
+    [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
 
