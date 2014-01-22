@@ -33,13 +33,14 @@
     self.scroll.pagingEnabled = false;
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.scroll.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame)+20, 0);
-    self.rootview = [[UIView alloc] initWithFrame:CGRectMake(0,0,fW, ofH)];
     
+    self.rootview = [[UIView alloc] initWithFrame:CGRectMake(0,0,fW, ofH)];
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     [self.scroll addGestureRecognizer:singleTap];
     
-    [self.titleInput setText:@"Hello"];
+   // self.subView.backgroundColor = [[UIColor alloc] initWithRed:1. green:0.5 blue:0.5 alpha:1];
+    
     [self.titleInput resignFirstResponder];
     
     [self.scroll addSubview:self.subView];
