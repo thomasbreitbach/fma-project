@@ -206,6 +206,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="eVl-eY-pXM">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="6jI-XC-TSV" eventType="valueChanged" id="Jdt-kN-CVj"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="refreshOutlet" destination="eVl-eY-pXM" id="72h-Qu-BYj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4K6-aq-VkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

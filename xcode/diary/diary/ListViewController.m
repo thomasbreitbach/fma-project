@@ -18,6 +18,8 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic,strong)NSMutableArray *entries;
 @property (nonatomic, copy) NSArray *items;
+@property (weak, nonatomic) IBOutlet UIRefreshControl *refreshOutlet;
+
 
 @end
 
@@ -255,6 +257,12 @@
         NSLog(@"My dictionary is %@",theResult);
     }
      */
+}
+- (IBAction)refresh:(id)sender {
+    
+    // TODO: hier ein update der Entries
+    NSLog(@"Refresh and stop again");
+    [self.refreshControl endRefreshing];
 }
 
 @end
