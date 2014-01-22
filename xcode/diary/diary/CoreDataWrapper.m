@@ -50,8 +50,12 @@
         entry.title = [key objectForKey:@"title"];
         
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
-        entry.date = [df dateFromString: [key objectForKey:@"date"]];
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        NSString *str = [key objectForKey:@"date"];
+        NSLog(@"%@",str);
+         NSLog(@"%@",[df dateFromString: str]);
+         entry.date = [df dateFromString: str];
         
         entry.id = [key objectForKey:@"id"];
         entry.mood = [NSNumber numberWithInteger: [[key objectForKey:@"mood"] integerValue]];
