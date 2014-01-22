@@ -15,6 +15,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *titleInput;
 @property (strong, nonatomic) IBOutlet UITextView *textInput;
 
+@property (strong, nonatomic) IBOutlet UIButton *superHappy;
+@property (strong, nonatomic) IBOutlet UIButton *happy;
+@property (strong, nonatomic) IBOutlet UIButton *sad;
+@property (strong, nonatomic) IBOutlet UIButton *superSad;
+
 @end
 
 @implementation NewEntryController
@@ -24,7 +29,9 @@
     
     float fH = self.view.frame.size.height;
     float fW = self.view.frame.size.width;
-    float ofH = 800;
+    float ofH = 900;
+    
+    selectedMood = -1;
     
     [super viewDidLoad];
     [self.view endEditing:YES];
@@ -58,6 +65,51 @@
 {
     [self.titleInput resignFirstResponder];
     [self.textInput resignFirstResponder];
+    
+}
+- (IBAction)changeMood:(id)sender {
+    NSString *senderTitle = [(UIButton *)sender currentTitle];
+    NSString *buttonSuperHappyTitle = self.superHappy.titleLabel.text;
+    NSString *buttonHappyTitle = self.happy.titleLabel.text;
+    NSString *buttonSuperSadTitle = self.superSad.titleLabel.text;
+    NSString *buttonSadTitle = self.sad.titleLabel.text;
+    
+    if([senderTitle isEqualToString:buttonSuperHappyTitle])
+    {
+        [self.superHappy setAlpha:1.0];
+        [self.happy setAlpha:0.5];
+        [self.sad setAlpha:0.5];
+        [self.superSad setAlpha:0.5];
+        
+        selectedMood = 1;
+    }
+    if([senderTitle isEqualToString:buttonHappyTitle])
+    {
+        [self.superHappy setAlpha:0.5];
+        [self.happy setAlpha:1.0];
+        [self.sad setAlpha:0.5];
+        [self.superSad setAlpha:0.5];
+        
+        selectedMood = 2;
+    }
+    if([senderTitle isEqualToString:buttonSadTitle])
+    {
+        [self.superHappy setAlpha:0.5];
+        [self.happy setAlpha:0.5];
+        [self.sad setAlpha:1.5];
+        [self.superSad setAlpha:0.5];
+        
+        selectedMood = 3;
+    }
+    if([senderTitle isEqualToString:buttonSuperSadTitle])
+    {
+        [self.superHappy setAlpha:0.5];
+        [self.happy setAlpha:0.5];
+        [self.sad setAlpha:0.5];
+        [self.superSad setAlpha:1.0];
+        
+        selectedMood = 4;
+    }
     
 }
 @end
