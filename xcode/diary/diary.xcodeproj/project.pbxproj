@@ -29,6 +29,8 @@
 		45B8A390186F723600BC0616 /* Book.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 45B8A38F186F723600BC0616 /* Book.xcdatamodel */; };
 		45B8A3951870B1DD00BC0616 /* Tagebuch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45B8A3931870B1DD00BC0616 /* Tagebuch.jpg */; };
 		45B8A3961870B1DD00BC0616 /* Tagebuch@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45B8A3941870B1DD00BC0616 /* Tagebuch@2x.jpg */; };
+		45FF69FD188FEC1300441E6E /* Remote.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF69FC188FEC1300441E6E /* Remote.m */; };
+		45FF6A00188FED7B00441E6E /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF69FF188FED7B00441E6E /* CoreDataWrapper.m */; };
 		CA876374188FD9BD006DEB57 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876370188FD9BD006DEB57 /* sad.png */; };
 		CA876375188FD9BD006DEB57 /* crying.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876371188FD9BD006DEB57 /* crying.png */; };
 		CA876376188FD9BD006DEB57 /* rhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876372188FD9BD006DEB57 /* rhappy.png */; };
@@ -78,6 +80,10 @@
 		45B8A38F186F723600BC0616 /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
 		45B8A3931870B1DD00BC0616 /* Tagebuch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Tagebuch.jpg; path = ../Tagebuch.jpg; sourceTree = "<group>"; };
 		45B8A3941870B1DD00BC0616 /* Tagebuch@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Tagebuch@2x.jpg"; path = "../Tagebuch@2x.jpg"; sourceTree = "<group>"; };
+		45FF69FB188FEBF800441E6E /* Remote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Remote.h; sourceTree = "<group>"; };
+		45FF69FC188FEC1300441E6E /* Remote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Remote.m; sourceTree = "<group>"; };
+		45FF69FE188FED7B00441E6E /* CoreDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataWrapper.h; sourceTree = "<group>"; };
+		45FF69FF188FED7B00441E6E /* CoreDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataWrapper.m; sourceTree = "<group>"; };
 		CA876370188FD9BD006DEB57 /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad.png; sourceTree = "<group>"; };
 		CA876371188FD9BD006DEB57 /* crying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crying.png; sourceTree = "<group>"; };
 		CA876372188FD9BD006DEB57 /* rhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rhappy.png; sourceTree = "<group>"; };
@@ -150,6 +156,10 @@
 		4596CF16186F2763006EC4E9 /* diary */ = {
 			isa = PBXGroup;
 			children = (
+				45FF69FC188FEC1300441E6E /* Remote.m */,
+				45FF69FB188FEBF800441E6E /* Remote.h */,
+				45FF69FE188FED7B00441E6E /* CoreDataWrapper.h */,
+				45FF69FF188FED7B00441E6E /* CoreDataWrapper.m */,
 				45B8A3931870B1DD00BC0616 /* Tagebuch.jpg */,
 				45B8A3941870B1DD00BC0616 /* Tagebuch@2x.jpg */,
 				45B8A389186F603400BC0616 /* Book.h */,
@@ -305,11 +315,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FF6A00188FED7B00441E6E /* CoreDataWrapper.m in Sources */,
 				45B8A388186F519B00BC0616 /* ListViewController.m in Sources */,
 				4596CF2A186F2763006EC4E9 /* SecondViewController.m in Sources */,
 				4596CF21186F2763006EC4E9 /* AppDelegate.m in Sources */,
 				4596CF27186F2763006EC4E9 /* NewEntryController.m in Sources */,
 				DE9471CE1886B5DA00AD9784 /* Entry.m in Sources */,
+				45FF69FD188FEC1300441E6E /* Remote.m in Sources */,
 				45B8A38E186F603400BC0616 /* Book.m in Sources */,
 				459D772518869A1200732F4A /* DetailsViewController.m in Sources */,
 				4596CF1D186F2763006EC4E9 /* main.m in Sources */,
