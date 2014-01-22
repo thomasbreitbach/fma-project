@@ -21,10 +21,10 @@
 /*
  *  GET REQUESTS
  */
--(NSDictionary*) get:(NSURL *)url{
+-(NSArray*) get:(NSURL *)url{
     NSData *theData = [NSData dataWithContentsOfURL:url];
     NSError *theError = nil;
-    NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
+    NSArray *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
     
     if(theError == nil){
         return theResult;
@@ -34,14 +34,14 @@
     }
 }
 
--(NSDictionary *)getBook:(NSString *)bookId{
+-(NSArray *)getBook:(NSString *)bookId{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", BASE_URL, BOOKS, bookId];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     return [self get:url];
 }
 
--(NSDictionary *)getEntries:(NSString *)bookId{
+-(NSArray *)getEntries:(NSString *)bookId{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@", BASE_URL, BOOKS, bookId, ENTRIES];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
@@ -49,7 +49,7 @@
 }
 
 
--(NSDictionary *)getEntry:(NSString *)bookId :(NSString *) entryId{
+-(NSArray *)getEntry:(NSString *)bookId :(NSString *) entryId{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", BASE_URL, BOOKS, bookId, ENTRIES, entryId];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     

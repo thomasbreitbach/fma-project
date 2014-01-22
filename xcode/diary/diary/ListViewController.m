@@ -10,6 +10,8 @@
 #import "DetailsViewController.h"
 #import "Entry.h"
 #import "AppDelegate.h"
+#import "Remote.h"
+#import "CoreDataWrapper.h"
 
 #define TEST_URL @"http://projects.drewiss.de/fma/rest/books/1/entries"
 
@@ -55,7 +57,7 @@
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
    
-    
+    /*
     _entries = [[NSMutableArray alloc] init];
     
     for (int i = 0; i<10; i++) {
@@ -64,10 +66,11 @@
         entry.title = [NSString stringWithFormat:@"Title %d", i];
         entry.date = [NSDate date];
         entry.id = [[NSUUID UUID] UUIDString];
-        entry.image = @"Tagebuch.jpg";
+        //entry.image = @"Tagebuch.jpg";
         
         [_entries addObject:entry];
     }
+    */
     NSLog(@"%d", [_entries count]);
     NSLog([_entries description]);
 
@@ -83,14 +86,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [_entries count]+1;
 }
@@ -109,7 +110,7 @@
         Entry *entry = [_entries objectAtIndex:indexPath.row];
         
         UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
-        entryImage.image = [UIImage imageNamed:entry.image];
+        //entryImage.image = [UIImage imageNamed:entry.image];
         
         UILabel *entryTitle = (UILabel *)[cell viewWithTag:101];
         entryTitle.text = entry.title;
@@ -257,6 +258,12 @@
         NSLog(@"My dictionary is %@",theResult);
     }
      */
+    Remote *remote = [[Remote alloc] init];
+    NSArray *d = [remote getEntries:@"1"];
+    CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
+    _entries = [cdw getCoreDataObjsFor:d];     
+    
+    
 }
 - (IBAction)refresh:(id)sender {
     

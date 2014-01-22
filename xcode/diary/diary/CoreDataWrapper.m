@@ -9,8 +9,17 @@
 #import "CoreDataWrapper.h"
 #import "Remote.h"
 #import "Entry.h"
+#import "AppDelegate.h"
+
+
+@interface CoreDataWrapper ()
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@end
 
 @implementation CoreDataWrapper
+
 
 -(id)init{
 
@@ -18,11 +27,42 @@
 }
 
 
--(NSManagedObject*) getCoreDataObjFor:(NSDictionary *)dictionary{
+- (NSManagedObjectContext *)managedObjectContext;
+{
+    if (!_managedObjectContext) {
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        _managedObjectContext = appDelegate.managedObjectContext;
+        
+    }
+    return _managedObjectContext;
+}
+
+
+-(NSMutableArray*)getCoreDataObjsFor:(NSArray *)dictionary{
     
+    NSMutableArray *entries = [[NSMutableArray alloc] init];
     
-    
-    return nil;
+    NSLog(@"%@", dictionary);
+    for (NSDictionary *key in dictionary) {
+        
+        Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
+                                                     inManagedObjectContext:self.managedObjectContext];
+        entry.title = [key objectForKey:@"title"];
+        
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
+        entry.date = [df dateFromString: [key objectForKey:@"date"]];
+        
+        entry.id = [key objectForKey:@"id"];
+        entry.mood = [NSNumber numberWithInteger: [[key objectForKey:@"mood"] integerValue]];
+        entry.text = [key objectForKey:@"text"];
+        //entry.locationsLati = [key objectForKey:@"location_lati"]; //[NSNumber numberWithInteger: [[key objectForKey:@"mood"] integerValue]];
+        //entry.locationsLong = [key objectForKey:@"location_long"];
+
+        [entries addObject:entry];
+        
+    }
+    return entries;
 }
 
 
