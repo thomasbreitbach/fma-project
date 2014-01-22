@@ -18,6 +18,9 @@
     return self;
 }
 
+/*
+ *  GET REQUESTS
+ */
 -(NSDictionary*) get:(NSURL *)url{
     NSData *theData = [NSData dataWithContentsOfURL:url];
     NSError *theError = nil;
@@ -45,6 +48,17 @@
     return [self get:url];
 }
 
+
+-(NSDictionary *)getEntry:(NSString *)bookId :(NSString *) entryId{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", BASE_URL, BOOKS, bookId, ENTRIES, entryId];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    return [self get:url];
+}
+
+/*
+ * POST REQUESTS
+ */
 
 
 @end
