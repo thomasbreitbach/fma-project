@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface NewEntryController : UIViewController
-
+- (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture;
 @end

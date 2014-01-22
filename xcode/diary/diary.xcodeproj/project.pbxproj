@@ -29,6 +29,10 @@
 		45B8A390186F723600BC0616 /* Book.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 45B8A38F186F723600BC0616 /* Book.xcdatamodel */; };
 		45B8A3951870B1DD00BC0616 /* Tagebuch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45B8A3931870B1DD00BC0616 /* Tagebuch.jpg */; };
 		45B8A3961870B1DD00BC0616 /* Tagebuch@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45B8A3941870B1DD00BC0616 /* Tagebuch@2x.jpg */; };
+		CA876374188FD9BD006DEB57 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876370188FD9BD006DEB57 /* sad.png */; };
+		CA876375188FD9BD006DEB57 /* crying.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876371188FD9BD006DEB57 /* crying.png */; };
+		CA876376188FD9BD006DEB57 /* rhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876372188FD9BD006DEB57 /* rhappy.png */; };
+		CA876377188FD9BD006DEB57 /* feelGood.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876373188FD9BD006DEB57 /* feelGood.png */; };
 		DE9471CE1886B5DA00AD9784 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9471CD1886B5DA00AD9784 /* Entry.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +78,10 @@
 		45B8A38F186F723600BC0616 /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
 		45B8A3931870B1DD00BC0616 /* Tagebuch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Tagebuch.jpg; path = ../Tagebuch.jpg; sourceTree = "<group>"; };
 		45B8A3941870B1DD00BC0616 /* Tagebuch@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Tagebuch@2x.jpg"; path = "../Tagebuch@2x.jpg"; sourceTree = "<group>"; };
+		CA876370188FD9BD006DEB57 /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad.png; sourceTree = "<group>"; };
+		CA876371188FD9BD006DEB57 /* crying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crying.png; sourceTree = "<group>"; };
+		CA876372188FD9BD006DEB57 /* rhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rhappy.png; sourceTree = "<group>"; };
+		CA876373188FD9BD006DEB57 /* feelGood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feelGood.png; sourceTree = "<group>"; };
 		DE9471CC1886B5DA00AD9784 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		DE9471CD1886B5DA00AD9784 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +114,10 @@
 		4596CF04186F2763006EC4E9 = {
 			isa = PBXGroup;
 			children = (
+				CA876370188FD9BD006DEB57 /* sad.png */,
+				CA876371188FD9BD006DEB57 /* crying.png */,
+				CA876372188FD9BD006DEB57 /* rhappy.png */,
+				CA876373188FD9BD006DEB57 /* feelGood.png */,
 				45B8A38F186F723600BC0616 /* Book.xcdatamodel */,
 				4596CF16186F2763006EC4E9 /* diary */,
 				4596CF38186F2763006EC4E9 /* diaryTests */,
@@ -267,9 +279,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4596CF2C186F2763006EC4E9 /* Images.xcassets in Resources */,
+				CA876374188FD9BD006DEB57 /* sad.png in Resources */,
 				4596CF1B186F2763006EC4E9 /* InfoPlist.strings in Resources */,
 				45B8A3961870B1DD00BC0616 /* Tagebuch@2x.jpg in Resources */,
+				CA876376188FD9BD006DEB57 /* rhappy.png in Resources */,
 				45B8A3951870B1DD00BC0616 /* Tagebuch.jpg in Resources */,
+				CA876375188FD9BD006DEB57 /* crying.png in Resources */,
+				CA876377188FD9BD006DEB57 /* feelGood.png in Resources */,
 				4596CF24186F2763006EC4E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
