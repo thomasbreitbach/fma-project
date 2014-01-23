@@ -14,6 +14,6 @@
 -(NSArray *)getBook:(NSString *)bookId;
 -(NSArray *)getEntries:(NSString *)bookId;
 -(NSArray *)getEntry:(NSString *)bookId :(NSString *) entryId;
-
+-(UIImage *) getImage:(NSString *) fileName;
 
 @end

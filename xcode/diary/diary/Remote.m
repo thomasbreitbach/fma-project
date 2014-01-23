@@ -36,7 +36,6 @@ NSMutableData *_responseData;
     /*
      * TODO PARSE DATA
      */
-    
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
