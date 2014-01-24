@@ -52,7 +52,7 @@
     [super viewDidLoad];
     
     [self.tableView setDelegate:self];
-    self.getItems;
+    [self getItems];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);

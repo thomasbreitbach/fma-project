@@ -62,7 +62,9 @@
         entry.text = [key objectForKey:@"text"];
         //entry.locationsLati = [key objectForKey:@"location_lati"]; //[NSNumber numberWithInteger: [[key objectForKey:@"mood"] integerValue]];
         //entry.locationsLong = [key objectForKey:@"location_long"];
-
+        
+        entry.theImage = [[NSString alloc] initWithString:@"test"];
+        
         [entries addObject:entry];
         
     }

@@ -23,6 +23,6 @@
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) Book *bookID;
 
-@property (nonatomic, retain) NSString *image;
+@property (nonatomic, retain) NSString *theImage;
 
 @end
