@@ -31,6 +31,7 @@
 		45B8A3961870B1DD00BC0616 /* Tagebuch@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45B8A3941870B1DD00BC0616 /* Tagebuch@2x.jpg */; };
 		45FF69FD188FEC1300441E6E /* Remote.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF69FC188FEC1300441E6E /* Remote.m */; };
 		45FF6A03189077FD00441E6E /* RemoteSynchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF6A02189077FD00441E6E /* RemoteSynchronous.m */; };
+		45FF6A05189424C800441E6E /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FF6A04189424C800441E6E /* plus.png */; };
 		CA876374188FD9BD006DEB57 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876370188FD9BD006DEB57 /* sad.png */; };
 		CA876375188FD9BD006DEB57 /* crying.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876371188FD9BD006DEB57 /* crying.png */; };
 		CA876376188FD9BD006DEB57 /* rhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876372188FD9BD006DEB57 /* rhappy.png */; };
@@ -85,6 +86,7 @@
 		45FF69FC188FEC1300441E6E /* Remote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Remote.m; sourceTree = "<group>"; };
 		45FF6A01189077FD00441E6E /* RemoteSynchronous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteSynchronous.h; sourceTree = "<group>"; };
 		45FF6A02189077FD00441E6E /* RemoteSynchronous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteSynchronous.m; sourceTree = "<group>"; };
+		45FF6A04189424C800441E6E /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		CA876370188FD9BD006DEB57 /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad.png; sourceTree = "<group>"; };
 		CA876371188FD9BD006DEB57 /* crying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crying.png; sourceTree = "<group>"; };
 		CA876372188FD9BD006DEB57 /* rhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rhappy.png; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				CA876371188FD9BD006DEB57 /* crying.png */,
 				CA876372188FD9BD006DEB57 /* rhappy.png */,
 				CA876373188FD9BD006DEB57 /* feelGood.png */,
+				45FF6A04189424C800441E6E /* plus.png */,
 				45B8A38F186F723600BC0616 /* Book.xcdatamodel */,
 				4596CF16186F2763006EC4E9 /* diary */,
 				4596CF38186F2763006EC4E9 /* diaryTests */,
@@ -303,6 +306,7 @@
 				45B8A3951870B1DD00BC0616 /* Tagebuch.jpg in Resources */,
 				CA876375188FD9BD006DEB57 /* crying.png in Resources */,
 				CA876377188FD9BD006DEB57 /* feelGood.png in Resources */,
+				45FF6A05189424C800441E6E /* plus.png in Resources */,
 				4596CF24186F2763006EC4E9 /* Main.storyboard in Resources */,
 				CAE6747F188FE8FF008A702D /* selectImage.png in Resources */,
 			);

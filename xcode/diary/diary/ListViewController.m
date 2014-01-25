@@ -66,11 +66,12 @@
         entry.title = [NSString stringWithFormat:@"Title %d", i];
         entry.date = [NSDate date];
         entry.id = [[NSUUID UUID] UUIDString];
-        //entry.image = @"Tagebuch.jpg";
+        entry.image = @"Tagebuch.jpg";
         
         [_entries addObject:entry];
     }
-    */
+     */
+    
     NSLog(@"%d", [_entries count]);
     NSLog([_entries description]);
 
@@ -110,7 +111,7 @@
         Entry *entry = [_entries objectAtIndex:indexPath.row];
         
         UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
-        //entryImage.image = [UIImage imageNamed:entry.image];
+        entryImage.image = [UIImage imageNamed:entry.image];
         
         UILabel *entryTitle = (UILabel *)[cell viewWithTag:101];
         entryTitle.text = entry.title;
@@ -129,10 +130,10 @@
         // eintrag für neuen tagebuch eintrag
         
         UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
-        entryImage.image = [UIImage imageNamed:@"Tagebuch.jpg"]; // TODO:
+        entryImage.image = [UIImage imageNamed:@"plus.png"];
         
         UILabel *entryTitle = (UILabel *)[cell viewWithTag:101];
-        entryTitle.text = @"Neuen Eintrag erstellen";
+        entryTitle.text = @"Neuer Eintrag";
         
         UILabel *entryDate = (UILabel *)[cell viewWithTag:102];
         entryDate.text = @"";
@@ -145,48 +146,51 @@
 // This method is run when the user taps the row in the tableview
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tapped row!"
-                                                    message:[NSString stringWithFormat:@"You tapped: %@", [_entries objectAtIndex:indexPath.row]]
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    //[alert show];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Declare the view controller
-    DetailsViewController *detailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-    
-    
-    
-    // Get cell textLabel string to use in new view controller title
-    NSString *cellTitleText = [[_entries objectAtIndex:indexPath.row]title];
-    
-    // Get object at the tapped cell index from table data source array to display in title
-    //id tappedObj = [sitesArray objectAtIndex:indexPath.row];
-    
-    // Set title indicating what row/section was tapped
-    [detailsVC setTitle:[NSString stringWithFormat:@"%@", cellTitleText]];
-    
-    // present it modally (not necessary, but sometimes looks better then pushing it onto the stack - depending on your App)
-    [detailsVC setModalPresentationStyle:UIModalPresentationFormSheet];
-    
-    // Have the transition do a horizontal flip - my personal fav
-    [detailsVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-    
-    // The method `presentModalViewController:animated:` is depreciated in iOS 6 so use `presentViewController:animated:completion:` instead.
-    //[self.navigationController presentViewController:detailsVC animated:YES completion:NULL];
-    
-    detailsVC.moodT = [[[_entries objectAtIndex:indexPath.row]mood]stringValue];
-    
-    NSDateFormatter *formatter;
-    formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
-    detailsVC.dateT = [formatter stringFromDate:[[_entries objectAtIndex:indexPath.row]date]];
-    
-    detailsVC.textT = [[_entries objectAtIndex:indexPath.row]text];
-    
-    [self.navigationController pushViewController:detailsVC animated:YES];  
-    
+    if([tableView numberOfRowsInSection:0] == indexPath.row+1){
+        self.tabBarController.selectedIndex = 1;
+        
+    }else{
+        
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        // Declare the view controller
+        DetailsViewController *detailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+        
+        
+        // Get cell textLabel string to use in new view controller title
+        NSString *cellTitleText = [[_entries objectAtIndex:indexPath.row]title];
+        
+        // Get object at the tapped cell index from table data source array to display in title
+        //id tappedObj = [sitesArray objectAtIndex:indexPath.row];
+        
+        // Set title indicating what row/section was tapped
+        [detailsVC setTitle:[NSString stringWithFormat:@"%@", cellTitleText]];
+        
+        // present it modally (not necessary, but sometimes looks better then pushing it onto the stack - depending on your App)
+        [detailsVC setModalPresentationStyle:UIModalPresentationFormSheet];
+        
+        // Have the transition do a horizontal flip - my personal fav
+        [detailsVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+        
+        // The method `presentModalViewController:animated:` is depreciated in iOS 6 so use `presentViewController:animated:completion:` instead.
+        //[self.navigationController presentViewController:detailsVC animated:YES completion:NULL];
+        
+        detailsVC.moodT = [[[_entries objectAtIndex:indexPath.row]mood]stringValue];
+        
+        NSDateFormatter *formatter;
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+        detailsVC.dateT = [formatter stringFromDate:[[_entries objectAtIndex:indexPath.row]date]];
+        
+        detailsVC.textT = [[_entries objectAtIndex:indexPath.row]text];
+        
+        detailsVC.imageI = [UIImage imageNamed:[[_entries objectAtIndex:indexPath.row]image] ];
+        
+        [self.navigationController pushViewController:detailsVC animated:YES];
+        
+    }
     
     
 }
@@ -243,7 +247,7 @@
  */
 - (IBAction)newEntry:(UIBarButtonItem *)sender {
     
-    // TODO: NewEntry Controller aufrufen
+    self.tabBarController.selectedIndex = 1;
     
 }
 
@@ -258,6 +262,7 @@
         NSLog(@"My dictionary is %@",theResult);
     }
      */
+    
     RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
     NSArray *d = [remote getEntries:@"1"];
     CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];

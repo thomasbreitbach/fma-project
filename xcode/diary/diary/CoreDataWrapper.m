@@ -62,6 +62,8 @@
         entry.text = [key objectForKey:@"text"];
         //entry.locationsLati = [key objectForKey:@"location_lati"]; //[NSNumber numberWithInteger: [[key objectForKey:@"mood"] integerValue]];
         //entry.locationsLong = [key objectForKey:@"location_long"];
+        
+        //entry.image = @"sad.png";
 
         [entries addObject:entry];
         
