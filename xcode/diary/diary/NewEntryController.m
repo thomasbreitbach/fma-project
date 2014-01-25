@@ -7,6 +7,8 @@
 //
 
 #import "NewEntryController.h"
+#import "Entry.h"
+#import "AppDelegate.h"
 
 @interface NewEntryController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
@@ -14,15 +16,28 @@
 @property (strong, nonatomic) IBOutlet UIView *subView;
 @property (strong, nonatomic) IBOutlet UITextField *titleInput;
 @property (strong, nonatomic) IBOutlet UITextView *textInput;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (strong, nonatomic) IBOutlet UIButton *superHappy;
 @property (strong, nonatomic) IBOutlet UIButton *happy;
 @property (strong, nonatomic) IBOutlet UIButton *sad;
 @property (strong, nonatomic) IBOutlet UIButton *superSad;
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
 @end
 
 @implementation NewEntryController
+- (NSManagedObjectContext *)managedObjectContext;
+{
+    if (!_managedObjectContext) {
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        _managedObjectContext = appDelegate.managedObjectContext;
+        
+    }
+    return _managedObjectContext;
+}
+
 
 - (void)viewDidLoad
 {
@@ -110,6 +125,26 @@
         
         selectedMood = 4;
     }
+    
+}
+- (IBAction)save:(UIButton *)sender {
+    
+    Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
+                                                 inManagedObjectContext:self.managedObjectContext];
+    entry.title = self.titleInput.text;
+    entry.date = self.datePicker.date;
+    
+    //entry.id = [key objectForKey:@"id"]; //TODO ID erzeugen
+    
+    entry.mood = [NSNumber numberWithInteger: selectedMood];
+    entry.text = self.textInput.text;
+    
+    //entry.locationsLati = [key objectForKey:@"location_lati"];
+    //entry.locationsLong = [key objectForKey:@"location_long"];
+    
+    //entry.image = @"";
+    
+    NSLog(@"%@",entry);
     
 }
 @end

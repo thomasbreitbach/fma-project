@@ -81,6 +81,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <state key="normal" title="Save">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="save:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="N4u-Ct-j4O"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ecS-Ot-h90">
                                                 <rect key="frame" x="20" y="349" width="60" height="60"/>
@@ -143,6 +146,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <tabBarItem key="tabBarItem" title="Add" id="u1e-5L-l1D"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="datePicker" destination="J2D-sh-JEI" id="XG9-CE-IT0"/>
                         <outlet property="happy" destination="zTA-0C-FNp" id="sE0-CJ-TKX"/>
                         <outlet property="rootview" destination="2VE-Yg-loa" id="bPT-ac-ef6"/>
                         <outlet property="sad" destination="nsQ-Ph-lpL" id="Bqu-xM-A9o"/>
