@@ -11,6 +11,7 @@
 @implementation RemoteSynchronous
 
 #define BASE_URL    @"http://projects.drewiss.de/fma/rest"
+#define PICTURES    @"photos"
 #define BOOKS       @"books"
 #define ENTRIES     @"entries"
 
@@ -54,6 +55,18 @@
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     return [self get:url];
+}
+
+-(UIImage *) getImage:(NSString *) fileName{
+    UIImage *result;
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", BASE_URL, PICTURES, fileName];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    result = [UIImage imageWithData:data];
+    
+    NSLog(@"BILD %@", result);
+    return result;
 }
 
 /*

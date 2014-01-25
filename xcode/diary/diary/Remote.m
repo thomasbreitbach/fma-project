@@ -32,11 +32,9 @@ NSMutableData *_responseData;
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     //request is complete! parse now
-    
     /*
      * TODO PARSE DATA
      */
-    
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
