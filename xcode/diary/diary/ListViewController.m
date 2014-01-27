@@ -50,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self.tableView setDelegate:self];
     [self getItems];
     

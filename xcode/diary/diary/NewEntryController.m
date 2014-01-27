@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *happy;
 @property (strong, nonatomic) IBOutlet UIButton *sad;
 @property (strong, nonatomic) IBOutlet UIButton *superSad;
+@property (strong, nonatomic) IBOutlet UIImageView *selectImage;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
