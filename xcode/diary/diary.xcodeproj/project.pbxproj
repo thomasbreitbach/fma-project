@@ -39,6 +39,7 @@
 		CAC53F7418968396009C6F6B /* holzBG.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F7318968396009C6F6B /* holzBG.png */; };
 		CAC53F761896871C009C6F6B /* addEntry.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F751896871C009C6F6B /* addEntry.png */; };
 		CAC53F7818968C66009C6F6B /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F7718968C66009C6F6B /* list.png */; };
+		CAC53F7C189697A5009C6F6B /* APLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F7B189697A5009C6F6B /* APLViewController.m */; };
 		CAE6747F188FE8FF008A702D /* selectImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE6747E188FE8FF008A702D /* selectImage.png */; };
 		DE978F3118905588002B205F /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE978F3018905588002B205F /* CoreDataWrapper.m */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,8 @@
 		CAC53F7318968396009C6F6B /* holzBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = holzBG.png; sourceTree = "<group>"; };
 		CAC53F751896871C009C6F6B /* addEntry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addEntry.png; sourceTree = "<group>"; };
 		CAC53F7718968C66009C6F6B /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		CAC53F7A189697A5009C6F6B /* APLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APLViewController.h; path = imagePicker/APLViewController.h; sourceTree = "<group>"; };
+		CAC53F7B189697A5009C6F6B /* APLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APLViewController.m; path = imagePicker/APLViewController.m; sourceTree = "<group>"; };
 		CAE6747E188FE8FF008A702D /* selectImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectImage.png; sourceTree = "<group>"; };
 		DE9471CC1886B5DA00AD9784 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		DE9471CD1886B5DA00AD9784 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 		CAC53F7918969652009C6F6B /* selectAImage */ = {
 			isa = PBXGroup;
 			children = (
+				CAC53F7A189697A5009C6F6B /* APLViewController.h */,
+				CAC53F7B189697A5009C6F6B /* APLViewController.m */,
 			);
 			name = selectAImage;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				459D772518869A1200732F4A /* DetailsViewController.m in Sources */,
 				45FF6A03189077FD00441E6E /* RemoteSynchronous.m in Sources */,
 				4596CF1D186F2763006EC4E9 /* main.m in Sources */,
+				CAC53F7C189697A5009C6F6B /* APLViewController.m in Sources */,
 				45B8A390186F723600BC0616 /* Book.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
