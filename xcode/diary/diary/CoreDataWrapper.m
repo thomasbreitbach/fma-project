@@ -71,5 +71,39 @@
     return entries;
 }
 
+-(NSData*)getJSONFor:(Entry *)entry{
+    
+    NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
+    
+    for (NSAttributeDescription *attribute in [[entry entity] properties]) {
+        NSString *attributeName = attribute.name;
+        
+        id attributeValue;
+        
+        if([attributeName  isEqual: @"date"]){
+            
+            NSDateFormatter *formatter;
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+            attributeValue = [formatter stringFromDate:[entry valueForKey:attributeName]];
+        }else{
+            attributeValue = [entry valueForKey:attributeName];
+        }
+        
+        if (attributeValue) {
+            [jsonDict setObject:attributeValue forKey:attributeName];
+        }
+    }
+    
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:nil];
+    NSString* jsonString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+    
+    //NSLog(@"%@",jsonData);
+    //NSLog(@"%@",jsonString);
+    
+    return jsonData;
+}
+
+
 
 @end

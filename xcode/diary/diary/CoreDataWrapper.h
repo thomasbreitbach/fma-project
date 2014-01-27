@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Entry.h"
 
 @interface CoreDataWrapper : NSObject
 -(NSMutableArray*)getCoreDataObjsFor:(NSArray *)dictionary;
+-(NSString*)getJSONFor:(Entry *)entry;
+
 @end

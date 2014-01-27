@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * id;
-@property (nonatomic, retain) NSString * image;
+@property (nonatomic, retain) NSString * image_path;
 @property (nonatomic, retain) Book *bookID;
 
 @end

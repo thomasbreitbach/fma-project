@@ -21,6 +21,6 @@
 @dynamic title;
 @dynamic id;
 @dynamic bookID;
-@dynamic image;
+@dynamic image_path;
 
 @end

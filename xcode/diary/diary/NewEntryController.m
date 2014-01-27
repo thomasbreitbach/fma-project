@@ -9,6 +9,8 @@
 #import "NewEntryController.h"
 #import "Entry.h"
 #import "AppDelegate.h"
+#import "CoreDataWrapper.h"
+#import "Remote.h"
 
 @interface NewEntryController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
@@ -149,6 +151,17 @@
     //entry.image = @"";
     
     NSLog(@"%@",entry);
+    
+    CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
+    
+    NSData *json = [cdw getJSONFor:entry];
+    NSLog(@"%@",json);
+    
+    Remote *remote = [[Remote alloc] init];
+  
+    
+    
+    
     
 }
 @end

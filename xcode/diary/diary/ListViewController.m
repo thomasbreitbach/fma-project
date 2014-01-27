@@ -66,7 +66,7 @@
         entry.title = [NSString stringWithFormat:@"Title %d", i];
         entry.date = [NSDate date];
         entry.id = [[NSUUID UUID] UUIDString];
-        entry.image = @"Tagebuch.jpg";
+        entry.image_path = @"Tagebuch.jpg";
         
         [_entries addObject:entry];
     }
@@ -111,7 +111,7 @@
         Entry *entry = [_entries objectAtIndex:indexPath.row];
         
         UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
-        entryImage.image = [UIImage imageNamed:entry.image];
+        entryImage.image = [UIImage imageNamed:entry.image_path];
         
         UILabel *entryTitle = (UILabel *)[cell viewWithTag:101];
         entryTitle.text = entry.title;
@@ -186,7 +186,7 @@
         
         detailsVC.textT = [[_entries objectAtIndex:indexPath.row]text];
         
-        detailsVC.imageI = [UIImage imageNamed:[[_entries objectAtIndex:indexPath.row]image] ];
+        detailsVC.imageI = [UIImage imageNamed:[[_entries objectAtIndex:indexPath.row]image_path] ];
         
         [self.navigationController pushViewController:detailsVC animated:YES];
         
