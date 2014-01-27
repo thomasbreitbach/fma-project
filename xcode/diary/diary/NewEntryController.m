@@ -22,7 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *happy;
 @property (strong, nonatomic) IBOutlet UIButton *sad;
 @property (strong, nonatomic) IBOutlet UIButton *superSad;
-@property (strong, nonatomic) IBOutlet UIImageView *selectImage;
+@property (strong, nonatomic) IBOutlet UIImageView *theImage;
+@property (strong, nonatomic) IBOutlet UIButton *selectTheImage;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
@@ -42,7 +43,6 @@
 
 - (void)viewDidLoad
 {
-    
     float fH = self.view.frame.size.height;
     float fW = self.view.frame.size.width;
     float ofH = 900;
@@ -62,7 +62,7 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     [self.scroll addGestureRecognizer:singleTap];
     
-   // self.subView.backgroundColor = [[UIColor alloc] initWithRed:1. green:0.5 blue:0.5 alpha:1];
+    //self.subView.backgroundColor = [[UIColor alloc] initWithRed:1. green:0.5 blue:0.5 alpha:1];
     
     [self.titleInput resignFirstResponder];
     
@@ -128,6 +128,9 @@
     }
     
 }
+
+
+
 - (IBAction)save:(UIButton *)sender {
     
     Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"

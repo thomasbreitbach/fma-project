@@ -173,6 +173,7 @@
 		4596CF16186F2763006EC4E9 /* diary */ = {
 			isa = PBXGroup;
 			children = (
+				CAC53F7918969652009C6F6B /* selectAImage */,
 				DE978F2F18905588002B205F /* CoreDataWrapper.h */,
 				DE978F3018905588002B205F /* CoreDataWrapper.m */,
 				45FF69FB188FEBF800441E6E /* Remote.h */,
@@ -229,6 +230,13 @@
 				4596CF3B186F2763006EC4E9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CAC53F7918969652009C6F6B /* selectAImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = selectAImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
