@@ -143,7 +143,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Add" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="" image="addEntry.png" id="u1e-5L-l1D"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="J2D-sh-JEI" id="XG9-CE-IT0"/>
@@ -346,6 +346,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
+        <image name="addEntry.png" width="32" height="36"/>
         <image name="crying.png" width="128" height="128"/>
         <image name="feelGood.png" width="128" height="128"/>
         <image name="holzBG.png" width="435" height="50"/>

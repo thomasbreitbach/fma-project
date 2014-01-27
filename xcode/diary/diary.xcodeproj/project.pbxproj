@@ -37,6 +37,7 @@
 		CA876376188FD9BD006DEB57 /* rhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876372188FD9BD006DEB57 /* rhappy.png */; };
 		CA876377188FD9BD006DEB57 /* feelGood.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876373188FD9BD006DEB57 /* feelGood.png */; };
 		CAC53F7418968396009C6F6B /* holzBG.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F7318968396009C6F6B /* holzBG.png */; };
+		CAC53F761896871C009C6F6B /* addEntry.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F751896871C009C6F6B /* addEntry.png */; };
 		CAE6747F188FE8FF008A702D /* selectImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE6747E188FE8FF008A702D /* selectImage.png */; };
 		DE978F3118905588002B205F /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE978F3018905588002B205F /* CoreDataWrapper.m */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		CA876372188FD9BD006DEB57 /* rhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rhappy.png; sourceTree = "<group>"; };
 		CA876373188FD9BD006DEB57 /* feelGood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feelGood.png; sourceTree = "<group>"; };
 		CAC53F7318968396009C6F6B /* holzBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = holzBG.png; sourceTree = "<group>"; };
+		CAC53F751896871C009C6F6B /* addEntry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addEntry.png; sourceTree = "<group>"; };
 		CAE6747E188FE8FF008A702D /* selectImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectImage.png; sourceTree = "<group>"; };
 		DE9471CC1886B5DA00AD9784 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		DE9471CD1886B5DA00AD9784 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		4596CF04186F2763006EC4E9 = {
 			isa = PBXGroup;
 			children = (
+				CAC53F751896871C009C6F6B /* addEntry.png */,
 				CAC53F7318968396009C6F6B /* holzBG.png */,
 				CAE6747E188FE8FF008A702D /* selectImage.png */,
 				CA876370188FD9BD006DEB57 /* sad.png */,
@@ -312,6 +315,7 @@
 				45FF6A05189424C800441E6E /* plus.png in Resources */,
 				4596CF24186F2763006EC4E9 /* Main.storyboard in Resources */,
 				CAE6747F188FE8FF008A702D /* selectImage.png in Resources */,
+				CAC53F761896871C009C6F6B /* addEntry.png in Resources */,
 				CAC53F7418968396009C6F6B /* holzBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
