@@ -10,7 +10,7 @@
             <objects>
                 <viewController title="First" id="CZ4-MO-1fc" customClass="NewEntryController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa" userLabel="rootview">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1096"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="1096"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" id="Wem-oN-R53">
@@ -135,6 +135,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <state key="normal" title="Image wählen...">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pickTheImage:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="HnO-23-RKF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0039215688593685627" green="0.62352943420410156" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
@@ -314,43 +317,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="826" y="-669"/>
         </scene>
-        <!--Table View Controller - Root View Controller-->
-        <scene sceneID="ETX-UA-WAs">
-            <objects>
-                <tableViewController id="Vgc-an-oR7" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hcX-ps-YIE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wpB-bp-HQl">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wpB-bp-HQl" id="RGy-p4-Jua">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="u8d-CI-np0"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dqt-Hg-93a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1696" y="-669"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mnh-SU-Z7G">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JX4-SL-EUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="BtD-3C-ezE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A9U-Gg-yjK">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Vgc-an-oR7" kind="relationship" relationship="rootViewController" id="0Dg-5s-bXS"/>
+                        <segue destination="ezl-52-hzb" kind="relationship" relationship="rootViewController" id="aUa-Tb-IOQ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JX4-SL-EUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1162" y="-669"/>
         </scene>
@@ -397,6 +375,53 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="400" y="424"/>
         </scene>
+        <!--View Controller - PhotoPicker-->
+        <scene sceneID="2aK-4g-o9p">
+            <objects>
+                <viewController storyboardIdentifier="ImagePickerControllerID" id="ezl-52-hzb" customClass="APLViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a4S-Ni-bHq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8PQ-We-VpO">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Photo Library" id="IHO-p0-URg">
+                                        <connections>
+                                            <action selector="showImagePickerForPhotoPicker:" destination="ezl-52-hzb" id="fXs-Rp-h1P"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zae-EX-GDK"/>
+                                    <barButtonItem systemItem="camera" id="Diz-Ob-ISA">
+                                        <connections>
+                                            <action selector="showImagePickerForCamera:" destination="ezl-52-hzb" id="t1w-Wh-4ei"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="FdH-xM-G1S">
+                                <rect key="frame" x="0.0" y="65" width="320" height="345"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iRX-rp-rri">
+                                <rect key="frame" x="102" y="459" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save to Server">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="PhotoPicker" id="e0O-2e-TkW"/>
+                    <connections>
+                        <outlet property="imageView" destination="FdH-xM-G1S" id="Rbp-3a-KuH"/>
+                        <outlet property="toolBar" destination="8PQ-We-VpO" id="Sbq-FG-z9G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MX2-7X-KBy" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505" y="-669"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addEntry.png" width="30" height="30"/>
@@ -415,6 +440,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SUk-Ux-ee1"/>
+        <segue reference="28y-ys-xtd"/>
     </inferredMetricsTieBreakers>
 </document>

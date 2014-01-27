@@ -7,6 +7,7 @@
 //
 
 #import "NewEntryController.h"
+#import "APLViewController.h"
 #import "Entry.h"
 #import "AppDelegate.h"
 #import "CoreDataWrapper.h"
@@ -27,6 +28,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *theImage;
 @property (strong, nonatomic) IBOutlet UIButton *selectTheImage;
 
+@property (strong, nonatomic) APLViewController *imagePicker;
+
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @end
@@ -42,6 +45,14 @@
     return _managedObjectContext;
 }
 
+- (IBAction)pickTheImage:(id)sender
+{
+    
+    NSLog(@"BUTTON:TOUCHED");
+    [self.navigationController presentViewController:self.imagePicker animated:YES completion:NULL];
+    [self.imagePicker testLog];
+    
+}
 
 - (void)viewDidLoad
 {
@@ -53,6 +64,8 @@
     
     [super viewDidLoad];
     [self.view endEditing:YES];
+    
+    self.imagePicker = [[APLViewController alloc] init];
     
     self.scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, fW, fH)];
     self.scroll.pagingEnabled = false;
@@ -71,6 +84,8 @@
     [self.scroll addSubview:self.subView];
     self.scroll.contentSize = CGSizeMake(fW, ofH);
     [self.view addSubview:self.scroll];
+    
+
 }
 
 - (void)didReceiveMemoryWarning

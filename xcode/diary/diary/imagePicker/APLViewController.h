@@ -48,5 +48,5 @@
 #import <UIKit/UIKit.h>
 
 @interface APLViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-
+-(void)testLog;
 @end

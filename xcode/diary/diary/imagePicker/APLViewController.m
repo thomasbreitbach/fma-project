@@ -265,6 +265,9 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(void)testLog{
+    NSLog(@"INIT:CONTROLLER:TRUE");
+}
 
 @end
 
