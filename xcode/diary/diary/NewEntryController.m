@@ -49,8 +49,17 @@
 {
     
     NSLog(@"BUTTON:TOUCHED");
-    [self.navigationController presentViewController:self.imagePicker animated:YES completion:NULL];
-    [self.imagePicker testLog];
+    
+    
+    // Declare the view controller
+    APLViewController *detailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];
+    
+    [self presentModalViewController:detailsVC animated:YES];
+    
+    //[self.navigationController pushViewController:detailsVC animated:YES];
+
+    
+    
     
 }
 
@@ -65,7 +74,7 @@
     [super viewDidLoad];
     [self.view endEditing:YES];
     
-    self.imagePicker = [[APLViewController alloc] init];
+    //self.imagePicker = [[APLViewController alloc] init];
     
     self.scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, fW, fH)];
     self.scroll.pagingEnabled = false;
