@@ -11,8 +11,8 @@
 @interface Remote : NSObject<NSURLConnectionDataDelegate>
 
 -(id)init;
--(void)getBook:(NSString *)bookId;
--(void)getEntries:(NSString *)bookId;
--(void)getEntry:(NSString *)bookId :(NSString *) entryId;
+-(void)getBook:(NSInteger *) bookId;
+-(void)getEntries:(NSInteger *)bookId;
+-(void)getEntry:(NSInteger *)bookId :(NSInteger *) entryId;
 
 @end

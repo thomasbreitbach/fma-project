@@ -55,24 +55,24 @@ NSMutableData *_responseData;
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 }
 
--(void)getBook:(NSString *)bookId{
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", BASE_URL, BOOKS, bookId];
+-(void)getBook:(NSInteger *) bookId{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d", BASE_URL, BOOKS, (int)bookId];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     [self get:url];
 }
 
 
--(void)getEntries:(NSString *)bookId{
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@", BASE_URL, BOOKS, bookId, ENTRIES];
+-(void)getEntries:(NSInteger *)bookId{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@", BASE_URL, BOOKS, (int)bookId, ENTRIES];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     [self get:url];
 }
 
 
--(void)getEntry:(NSString *)bookId :(NSString *) entryId{
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", BASE_URL, BOOKS, bookId, ENTRIES, entryId];
+-(void)getEntry:(NSInteger *)bookId :(NSInteger *) entryId{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@/%d", BASE_URL, BOOKS, (int)bookId, ENTRIES, (int)entryId];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     [self get:url];
@@ -93,6 +93,23 @@ NSMutableData *_responseData;
     //fire asynchonous request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
+
+
+-(void) postBook:(NSData *) requestBodyData{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@", BASE_URL, BOOKS];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [self post:url :requestBodyData];
+}
+
+
+-(void) postEntry:(NSInteger) book_id :(NSData *) requestBodyData{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@", BASE_URL, BOOKS, (int)book_id, ENTRIES];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [self post:url :requestBodyData];
+}
+
 
 
 /*
