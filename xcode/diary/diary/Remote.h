@@ -20,6 +20,7 @@
 //POST
 -(void) postBook:(NSData *) requestBodyData;
 -(void) postEntry:(NSInteger) book_id :(NSData *) requestBodyData;
+-(void) postImage:(NSInteger) book_id :(NSInteger) entry_id;
 
 //PUT
 -(void) putBook:(NSInteger *) book_id :(NSData *) requestBodyData;

@@ -110,6 +110,10 @@ NSMutableData *_responseData;
     [self post:url :requestBodyData];
 }
 
+-(void) postImage:(NSInteger)book_id :(NSInteger)entry_id{
+    
+}
+
 
 
 /*
