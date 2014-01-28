@@ -128,4 +128,47 @@ NSMutableData *_responseData;
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
+
+-(void) putBook:(NSInteger *) book_id :(NSData *) requestBodyData{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d", BASE_URL, BOOKS, (int)book_id];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [self put:url :requestBodyData];
+}
+
+-(void) putEntry:(NSInteger *) book_id :(NSInteger *) entry_id :(NSData *) requestBodyData{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@/%d", BASE_URL, BOOKS, (int)book_id, ENTRIES, (int)entry_id];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [self put:url :requestBodyData];
+}
+
+
+/*
+ * DELETE REQUESTS
+ */
+-(void) delete:(NSURL *)url{
+    NSMutableURLRequest *request = [NSURLRequest requestWithURL:url];
+    request.HTTPMethod = @"DELETE";
+    
+    //fire asynchonous request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+
+-(void) deleteBook:(NSInteger *)book_id{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d", BASE_URL, BOOKS, (int)book_id];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [self delete:url];
+}
+
+
+-(void) deleteEntry:(NSInteger *)book_id :(NSInteger *) entry_id{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@/%d", BASE_URL, BOOKS, (int)book_id, ENTRIES, (int)entry_id];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [self delete:url];
+}
+
 @end

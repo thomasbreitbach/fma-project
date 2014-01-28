@@ -11,8 +11,22 @@
 @interface Remote : NSObject<NSURLConnectionDataDelegate>
 
 -(id)init;
+
+//GET
 -(void)getBook:(NSInteger *) bookId;
 -(void)getEntries:(NSInteger *)bookId;
 -(void)getEntry:(NSInteger *)bookId :(NSInteger *) entryId;
+
+//POST
+-(void) postBook:(NSData *) requestBodyData;
+-(void) postEntry:(NSInteger) book_id :(NSData *) requestBodyData;
+
+//PUT
+-(void) putBook:(NSInteger *) book_id :(NSData *) requestBodyData;
+-(void) putEntry:(NSInteger *) book_id :(NSInteger *) entry_id :(NSData *) requestBodyData;
+
+//DELETE
+-(void) deleteBook:(NSInteger *) book_id;
+-(void) deleteEntry:(NSInteger *) book_id :(NSInteger *) entry_id;
 
 @end
