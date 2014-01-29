@@ -26,6 +26,7 @@
 @property (nonatomic, retain) RemoteSynchronous *remote;
 @property (nonatomic, retain) Remote *remoteAsync;
 
+@property (strong, nonatomic) NSMutableData *responseData;
 
 @end
 
@@ -58,12 +59,18 @@
     self.remote = [[RemoteSynchronous alloc] init];
     self.remoteAsync = [[Remote alloc] init];
 
+    self.remoteAsync.delegate = self;
+
     [self.tableView setDelegate:self];
 
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
  
     [self getItems];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        UIImage *image = [UIImage imageNamed:@"holzB2.png"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -191,6 +198,7 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         NSInteger id = [[[_entries objectAtIndex:indexPath.row]id] intValue];
@@ -198,8 +206,6 @@
         
         [self.remoteAsync deleteEntry:1 :id];
         
-        [self getItems];
-        [self.tableView reloadData];
         
     }
 }
@@ -235,7 +241,9 @@
         
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
+        
     }else{
+        
         UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
         
@@ -245,12 +253,41 @@
     
 }
 - (IBAction)refresh:(id)sender {
-    
-    NSLog(@"Refresh and stop again");
 
     [self getItems];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
+
+
+
+//PROTOCOL METHODS
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    _responseData = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [_responseData appendData:data];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    //request is complete! parse now
+    NSLog(@"foo");
+    
+    [self getItems];
+    [self.tableView reloadData];
+    
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:@"Fehler beim Laden"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 @end

@@ -65,6 +65,7 @@
 
 @property (nonatomic, weak) NSTimer *cameraTimer;
 @property (nonatomic) NSMutableArray *capturedImages;
+@property (strong, nonatomic) IBOutlet UIButton *apply;
 
 @end
 
@@ -86,7 +87,25 @@
         [toolbarItems removeObjectAtIndex:2];
         [self.toolBar setItems:toolbarItems animated:NO];
     }
+    self.apply.enabled = NO;
+    
+    
+    
 }
+
+/*
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSLog(@"%@",self.imageView.image);
+    
+    if(!self.imageView.image){
+        self.apply.enabled = NO;
+    }else{
+         self.apply.enabled = YES;
+    }
+}
+ */
 
 
 - (IBAction)showImagePickerForCamera:(id)sender
@@ -249,6 +268,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    self.apply.enabled = YES;
 
     [self.capturedImages addObject:image];
 

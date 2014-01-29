@@ -10,7 +10,7 @@
 #import "Reachability.h"
 
 @interface ListViewController : UITableViewController{
-    Reachability *internetReachableFoo;
+    
 }
 
 @end

@@ -150,7 +150,7 @@ NSMutableData *_responseData;
     request.HTTPMethod = @"DELETE";
     
     //fire asynchonous request
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self.delegate];
 }
 
 
