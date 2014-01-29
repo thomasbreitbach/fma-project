@@ -34,6 +34,7 @@
 		45FF6A05189424C800441E6E /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FF6A04189424C800441E6E /* plus.png */; };
 		CA3FE67A189977CD0088C085 /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CA3FE679189977CD0088C085 /* noImage.png */; };
 		CA3FE67C189981110088C085 /* holzB2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA3FE67B189981110088C085 /* holzB2.png */; };
+		CA3FE67E1899868E0088C085 /* lunchimage.png in Resources */ = {isa = PBXBuildFile; fileRef = CA3FE67D1899868E0088C085 /* lunchimage.png */; };
 		CA72C5411898F71900A76A5B /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA72C5401898F71900A76A5B /* OverlayView.xib */; };
 		CA79B55A1899410200F7D81E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA79B5591899410200F7D81E /* Reachability.m */; };
 		CA876374188FD9BD006DEB57 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876370188FD9BD006DEB57 /* sad.png */; };
@@ -98,6 +99,7 @@
 		45FF6A04189424C800441E6E /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		CA3FE679189977CD0088C085 /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noImage.png; path = diary/noImage.png; sourceTree = "<group>"; };
 		CA3FE67B189981110088C085 /* holzB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = holzB2.png; sourceTree = "<group>"; };
+		CA3FE67D1899868E0088C085 /* lunchimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchimage.png; sourceTree = "<group>"; };
 		CA72C5401898F71900A76A5B /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayView.xib; path = diary/OverlayView.xib; sourceTree = "<group>"; };
 		CA79B5581899410200F7D81E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		CA79B5591899410200F7D81E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		4596CF04186F2763006EC4E9 = {
 			isa = PBXGroup;
 			children = (
+				CA3FE67D1899868E0088C085 /* lunchimage.png */,
 				CA3FE67B189981110088C085 /* holzB2.png */,
 				CA3FE679189977CD0088C085 /* noImage.png */,
 				CA72C5401898F71900A76A5B /* OverlayView.xib */,
@@ -341,6 +344,7 @@
 			files = (
 				4596CF2C186F2763006EC4E9 /* Images.xcassets in Resources */,
 				CA876374188FD9BD006DEB57 /* sad.png in Resources */,
+				CA3FE67E1899868E0088C085 /* lunchimage.png in Resources */,
 				4596CF1B186F2763006EC4E9 /* InfoPlist.strings in Resources */,
 				CA3FE67C189981110088C085 /* holzB2.png in Resources */,
 				45B8A3961870B1DD00BC0616 /* Tagebuch@2x.jpg in Resources */,
