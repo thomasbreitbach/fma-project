@@ -67,6 +67,15 @@
 //
 //    
 //    [self.image setImage:img];
+    
+    UIImage* image      = [self.image image];
+    
+    if ([image CGImage] == nil )
+    {
+        NSLog(@"no underlying data");
+    }else{
+        NSLog(@"ist gesetzt!");
+    }
 }
 
 - (void)didReceiveMemoryWarning
