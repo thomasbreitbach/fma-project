@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C421C4A5-D85E-4538-BE3B-06405D515D3E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>diary</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F3A5C295-F848-4A77-AE0F-31C51A4F6C60</key>
+		<string>https://github.com/andrewissner/fma-project.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>xcode/diary/diary.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F3A5C295-F848-4A77-AE0F-31C51A4F6C60</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/andrewissner/fma-project.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F3A5C295-F848-4A77-AE0F-31C51A4F6C60</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F3A5C295-F848-4A77-AE0F-31C51A4F6C60</string>
+			<key>IDESourceControlWCCName</key>
+			<string>fma-project</string>
+		</dict>
+	</array>
+</dict>
+</plist>

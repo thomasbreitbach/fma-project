@@ -7,6 +7,7 @@
 //
 
 #import "Remote.h"
+#import "MIMEMultipartBody.h"
 
 @implementation Remote
 
@@ -55,10 +56,12 @@ NSMutableData *_responseData;
     [self get:url];
 }
 
+
+
 /*
  * POST REQUESTS
  */
--(void) post:(NSURL *)url :(NSData *) requestBodyData{
+-(NSURLConnection *) post:(NSURL *)url :(NSData *) requestBodyData{
     //HIER TESTEN->ANDRE
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
@@ -71,26 +74,38 @@ NSMutableData *_responseData;
     
     //fire asynchonous request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self.delegate];
+    return conn;
 }
 
 
--(void) postBook:(NSData *) requestBodyData{
+-(NSURLConnection *) postBook:(NSData *) requestBodyData{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@", BASE_URL, BOOKS];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
-    [self post:url :requestBodyData];
+    return [self post:url :requestBodyData];
 }
 
 
--(void) postEntry:(NSInteger) book_id :(NSData *) requestBodyData{
+-(NSURLConnection *) postEntry:(NSInteger) book_id :(NSData *) requestBodyData{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@", BASE_URL, BOOKS, (int)book_id, ENTRIES];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
-    [self post:url :requestBodyData];
+    return [self post:url :requestBodyData];
 }
 
--(void) postImage:(NSInteger)book_id :(NSInteger)entry_id{
+-(NSURLConnection *) postImage:(UIImage *) image withFilename:(NSString *) filename{
+    NSString *urlString = [NSString stringWithFormat:@"%@", UPLOAD_URL];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
     
+    NSData *thePhoto = UIImageJPEGRepresentation(image, 0.8);
+    
+    MIMEMultipartBody *multipartBody = [[MIMEMultipartBody alloc] init];
+    [multipartBody appendData:thePhoto withName:@"photo" contentType:@"image/jpg" filename:filename];
+    
+    
+    NSURLRequest * theRequest = [multipartBody mutableRequestWithURL:url timeout:15.0];
+    
+    return [[NSURLConnection alloc] initWithRequest:theRequest delegate:self.delegate];
 }
 
 

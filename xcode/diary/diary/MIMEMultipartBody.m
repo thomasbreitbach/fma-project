@@ -18,6 +18,7 @@
 */
 
 #import "MIMEMultipartBody.h"
+#import "NSString+URLTools.h"
 
 @interface MIMEMultipartBody()
 
@@ -76,6 +77,39 @@
 
 - (void)appendNewline {
     [self appendString:@"\r\n"];
+}
+
+- (void)startNewPart {
+    [self appendString:[NSString stringWithFormat:@"--%@", self.boundary]];
+    [self appendNewline];
+}
+
+- (void)appendParameterValue:(NSString *)inValue withName:(NSString *)inName {
+    NSString *theName = [inName encodedStringForURLWithEncoding:self.encoding];
+    
+    [self startNewPart];
+    [self appendString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"", theName]];
+    [self appendNewline];
+    [self appendNewline];
+    [self appendString:inValue];
+    [self appendNewline];
+}
+
+- (void)appendData:(NSData *)inData
+          withName:(NSString *)inName
+       contentType:(NSString *)inContentType
+          filename:(NSString *)inFileName {
+    NSString *theName = [inName encodedStringForURLWithEncoding:self.encoding];
+    NSString *theFileName = [inFileName encodedStringForURLWithEncoding:self.encoding];
+    
+    [self startNewPart];
+    [self appendString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"", theName, theFileName]];
+    [self appendNewline];
+    [self appendString:[NSString stringWithFormat:@"Content-Type: %@", inContentType]];
+    [self appendNewline];
+    [self appendNewline];
+    [self.data appendData:inData];
+    [self appendNewline];
 }
 
 - (NSData *)body {

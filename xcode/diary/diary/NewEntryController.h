@@ -12,7 +12,6 @@
 @interface NewEntryController : UIViewController<NSURLConnectionDelegate>
 {
      int   selectedMood;
-    Reachability *reachability;
 }
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture;
 @property (weak, nonatomic) UIImage *uiImage;
