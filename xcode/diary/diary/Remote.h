@@ -18,9 +18,9 @@
 -(void)getEntry:(NSInteger *)bookId :(NSInteger *) entryId;
 
 //POST
--(void) postBook:(NSData *) requestBodyData;
--(void) postEntry:(NSInteger) book_id :(NSData *) requestBodyData;
--(void) postImage:(NSInteger) book_id :(NSInteger) entry_id;
+-(NSURLConnection *) postBook:(NSData *) requestBodyData;
+-(NSURLConnection *) postEntry:(NSInteger) book_id :(NSData *) requestBodyData;
+-(NSURLConnection *) postImage:(UIImage *) image withFilename:(NSString *) filename;
 
 //PUT
 -(void) putBook:(NSInteger *) book_id :(NSData *) requestBodyData;

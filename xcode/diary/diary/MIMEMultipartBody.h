@@ -19,6 +19,8 @@
 - (id)init;
 - (id)initWithEncoding:(NSStringEncoding)inEncoding;
 - (id)initWithEncoding:(NSStringEncoding)inEncoding boundary:(NSString *)inSeparator;
+- (void)appendParameterValue:(NSString *)inValue withName:(NSString *)inName;
+- (void)appendData:(NSData *)inData withName:(NSString *)inName contentType:(NSString *)inContentType filename:(NSString *)inFileName;
 
 - (NSData *)body;
 

@@ -34,6 +34,12 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSString *theImageFilename;
+
+@property (strong, nonatomic) NSURLConnection *multipartConnection;
+@property (strong, nonatomic) NSURLConnection *connection;
+
+@property (nonatomic, retain) Remote *remote;
 
 @end
 
@@ -69,6 +75,9 @@
     float fH = self.view.frame.size.height;
     float fW = self.view.frame.size.width;
     float ofH = 900;
+    
+    self.remote = [[Remote alloc] init];
+    self.remote.delegate = self;
     
     selectedMood = -1;
     
@@ -179,39 +188,46 @@
     
     if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
     {
-    Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
+        //CONSTRUCT ENTRY OBJECT TO SEND
+        Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
                                                  inManagedObjectContext:self.managedObjectContext];
-    entry.title = self.titleInput.text;
-    entry.date = self.datePicker.date;
+        entry.title = self.titleInput.text;
+        entry.date = self.datePicker.date;
+        //entry.id = [key objectForKey:@"id"]; //TODO ID erzeugen
+        entry.mood = [NSNumber numberWithInteger: selectedMood];
+        entry.text = self.textInput.text;
+        //entry.locationsLati = [key objectForKey:@"location_lati"];
+        //entry.locationsLong = [key objectForKey:@"location_long"];
+        //self.theImage
+        //entry.image = @"";
+        
+        if([self.uiImage CGImage] != nil){
+            self.theImageFilename = [NSString stringWithFormat:@"%@.jpg", [[NSUUID UUID] UUIDString]];
+            entry.image_path = self.theImageFilename;
+        }
+        
+        NSLog(@"%@",entry);
     
-    //entry.id = [key objectForKey:@"id"]; //TODO ID erzeugen
-    
-    entry.mood = [NSNumber numberWithInteger: selectedMood];
-    entry.text = self.textInput.text;
-    
-    //entry.locationsLati = [key objectForKey:@"location_lati"];
-    //entry.locationsLong = [key objectForKey:@"location_long"];
-    
-    //self.theImage
-    
-    //entry.image = @"";
-    
-    NSLog(@"%@",entry);
-    
-    CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
-    
-    NSData *json = [cdw getJSONFor:entry];
-    //NSLog(@"%@",json);
-    
-    Remote *remote = [[Remote alloc] init];
-    remote.delegate = self;
-    
-    [remote postEntry:1 :json];
+        //object to json
+        CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
+        NSData *json = [cdw getJSONFor:entry];
+        
+        //send json data
+        self.connection = [self.remote postEntry:1 :json];
     }else{
-        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Sever ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
     }
     
+}
+
+-(void) showAlert{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Glückwunsch"
+                                                    message:@"Speichern erfolgreich"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 //PROTOCOL METHODS
@@ -224,17 +240,31 @@
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    //request is complete! parse now
+    NSLog(@"connectionDidFinishLoading");
     
-    NSLog(@"NewEntryController: %@", _responseData);
-    
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Glückwunsch"
-                                                    message:@"Speichern erfolgreich"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    if(connection == self.connection){
+        NSLog(@"connection = normal");
+        
+        //send image / multipart data
+        if([self.uiImage CGImage] != nil){
+            //get entryid
+            NSLog(@"image != null");
+            NSLog(@"filename: %@", _theImageFilename);
+            
+            //fire request
+            self.multipartConnection = [self.remote postImage:self.theImage.image withFilename:self.theImageFilename];
+        }else{
+            [self showAlert];
+        }
+    }
+    if(connection == self.multipartConnection){
+        
+        NSLog(@"connection = multipart");
+        
+        self.theImageFilename = nil;
+        [self showAlert];
+    }
+ 
     
     // Declare the view controller
     //ListViewController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];
@@ -242,7 +272,6 @@
     //[self presentModalViewController:aplVC animated:YES];
     
     self.tabBarController.selectedIndex = 0;
-    
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
