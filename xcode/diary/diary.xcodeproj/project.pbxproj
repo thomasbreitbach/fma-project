@@ -32,8 +32,8 @@
 		45FF69FD188FEC1300441E6E /* Remote.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF69FC188FEC1300441E6E /* Remote.m */; };
 		45FF6A03189077FD00441E6E /* RemoteSynchronous.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FF6A02189077FD00441E6E /* RemoteSynchronous.m */; };
 		45FF6A05189424C800441E6E /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FF6A04189424C800441E6E /* plus.png */; };
-		CA185DCF18992BFF006FEC27 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA185DCE18992BFF006FEC27 /* Reachability.m */; };
 		CA72C5411898F71900A76A5B /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA72C5401898F71900A76A5B /* OverlayView.xib */; };
+		CA79B55A1899410200F7D81E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA79B5591899410200F7D81E /* Reachability.m */; };
 		CA876374188FD9BD006DEB57 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876370188FD9BD006DEB57 /* sad.png */; };
 		CA876375188FD9BD006DEB57 /* crying.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876371188FD9BD006DEB57 /* crying.png */; };
 		CA876376188FD9BD006DEB57 /* rhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = CA876372188FD9BD006DEB57 /* rhappy.png */; };
@@ -94,9 +94,9 @@
 		45FF6A01189077FD00441E6E /* RemoteSynchronous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteSynchronous.h; sourceTree = "<group>"; };
 		45FF6A02189077FD00441E6E /* RemoteSynchronous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteSynchronous.m; sourceTree = "<group>"; };
 		45FF6A04189424C800441E6E /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		CA185DCD18992BFF006FEC27 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../../../../../../../../../../Projekte/Programmier Projekte/Cocoa/de.thm.fma.lesson/de.thm.fma.lesson/Reachability.h"; sourceTree = "<group>"; };
-		CA185DCE18992BFF006FEC27 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../../../../../../../../../../../Projekte/Programmier Projekte/Cocoa/de.thm.fma.lesson/de.thm.fma.lesson/Reachability.m"; sourceTree = "<group>"; };
 		CA72C5401898F71900A76A5B /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayView.xib; path = diary/OverlayView.xib; sourceTree = "<group>"; };
+		CA79B5581899410200F7D81E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CA79B5591899410200F7D81E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CA876370188FD9BD006DEB57 /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad.png; sourceTree = "<group>"; };
 		CA876371188FD9BD006DEB57 /* crying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crying.png; sourceTree = "<group>"; };
 		CA876372188FD9BD006DEB57 /* rhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rhappy.png; sourceTree = "<group>"; };
@@ -185,8 +185,8 @@
 		4596CF16186F2763006EC4E9 /* diary */ = {
 			isa = PBXGroup;
 			children = (
-				CA185DCD18992BFF006FEC27 /* Reachability.h */,
-				CA185DCE18992BFF006FEC27 /* Reachability.m */,
+				CA79B5581899410200F7D81E /* Reachability.h */,
+				CA79B5591899410200F7D81E /* Reachability.m */,
 				CAC53F7918969652009C6F6B /* selectAImage */,
 				DE978F2F18905588002B205F /* CoreDataWrapper.h */,
 				DE978F3018905588002B205F /* CoreDataWrapper.m */,
@@ -370,13 +370,13 @@
 				4596CF2A186F2763006EC4E9 /* SecondViewController.m in Sources */,
 				DE978F3118905588002B205F /* CoreDataWrapper.m in Sources */,
 				4596CF21186F2763006EC4E9 /* AppDelegate.m in Sources */,
+				CA79B55A1899410200F7D81E /* Reachability.m in Sources */,
 				4596CF27186F2763006EC4E9 /* NewEntryController.m in Sources */,
 				45FF69FD188FEC1300441E6E /* Remote.m in Sources */,
 				45B8A38E186F603400BC0616 /* Book.m in Sources */,
 				459D772518869A1200732F4A /* DetailsViewController.m in Sources */,
 				DEB2FA6F1899125B00E5663B /* MIMEMultipartBody.m in Sources */,
 				45FF6A03189077FD00441E6E /* RemoteSynchronous.m in Sources */,
-				CA185DCF18992BFF006FEC27 /* Reachability.m in Sources */,
 				4596CF1D186F2763006EC4E9 /* main.m in Sources */,
 				CAC53F7C189697A5009C6F6B /* APLViewController.m in Sources */,
 				45B8A390186F723600BC0616 /* Book.xcdatamodel in Sources */,
