@@ -10,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="NewEntryID" title="First" id="CZ4-MO-1fc" customClass="NewEntryController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa" userLabel="rootview">
-                        <rect key="frame" x="0.0" y="64" width="320" height="1322"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1322"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" id="Wem-oN-R53">
@@ -378,7 +378,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8PQ-We-VpO">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="523" width="320" height="44"/>
                                 <items>
                                     <barButtonItem title="Fotogalerie" id="IHO-p0-URg">
                                         <connections>
@@ -394,7 +394,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </items>
                             </toolbar>
                             <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="FdH-xM-G1S">
-                                <rect key="frame" x="0.0" y="65" width="320" height="345"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="345"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iRX-rp-rri">
                                 <rect key="frame" x="197" y="460" width="103" height="30"/>
@@ -448,6 +448,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="28y-ys-xtd"/>
+        <segue reference="SUk-Ux-ee1"/>
     </inferredMetricsTieBreakers>
 </document>
