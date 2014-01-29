@@ -60,7 +60,7 @@
 
 
     self.urlToServer = @"www.drewiss.de";
-    [self testInternetConnection:self.urlToServer];
+
 
     [self.tableView setDelegate:self];
     
@@ -255,7 +255,7 @@
     }
      */
     
-    if([self getServerState])
+    if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
     {
         RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
         NSArray *d                = [remote getEntries:@"1"];
@@ -267,7 +267,7 @@
     }else{
         UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
-        [self testInternetConnection:self.urlToServer];
+        
 
     }
     
@@ -276,24 +276,10 @@
 - (IBAction)refresh:(id)sender {
     
     NSLog(@"Refresh and stop again");
-    [self testInternetConnection:self.urlToServer];
+
     [self getItems];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
-}
-
-
-- (void)testInternetConnection:(NSString *) host
-{
-    
-    internetReachableFoo = [Reachability reachabilityWithHostname:host];
-    // Internet is reachable
-    if(internetReachableFoo.isReachable)
-    {
-        [self setServerState:true];
-    }else{
-        [self setServerState:false];
-    }
 }
 
 @end
