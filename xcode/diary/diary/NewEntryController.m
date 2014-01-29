@@ -57,9 +57,6 @@
     [self presentModalViewController:detailsVC animated:YES];
     
     //[self.navigationController pushViewController:detailsVC animated:YES];
-
-    
-    
     
 }
 
