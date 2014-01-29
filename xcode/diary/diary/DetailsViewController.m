@@ -56,7 +56,7 @@
     //self.text.frame = CGRectMake(20,20,200,800);
     [self.textTitle sizeToFit];
     [self.imageLoadingTitle setText:@"Foto wird geladen!"];
-    [self loadAsyncImageFromURI:self.imagePath];
+    [self loadAsyncImageFromURI:[@"http://projects.drewiss.de/fma/rest/photos/" stringByAppendingString:self.imagePath]];
     
 //    [self saveFileToBundle:[self.moodImage image]];
 //    

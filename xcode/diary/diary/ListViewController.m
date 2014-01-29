@@ -186,7 +186,7 @@
         detailsVC.imageI = [UIImage imageNamed:[[_entries objectAtIndex:indexPath.row]image_path] ];
          */
         
-        //detailsVC.imagePath = [[_entries objectAtIndex:indexPath.row]image_path];
+        detailsVC.imagePath = [[_entries objectAtIndex:indexPath.row]image_path];
         
         [self.navigationController pushViewController:detailsVC animated:YES];
         

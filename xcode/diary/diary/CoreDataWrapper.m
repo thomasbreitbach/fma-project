@@ -63,9 +63,12 @@
         //entry.locationsLati = [key objectForKey:@"location_lati"]; //[NSNumber numberWithInteger: [[key objectForKey:@"mood"] integerValue]];
         //entry.locationsLong = [key objectForKey:@"location_long"];
         
-        //entry.image = @"sad.png";
-        entry.image_path = [key objectForKey:@"image_path"];
-
+        NSString* iP = [key objectForKey:@"image_path"];
+        if(iP)
+        {
+            entry.image_path = iP;
+            NSLog(@"IP: %@", iP);
+        }
         [entries addObject:entry];
         
     }
