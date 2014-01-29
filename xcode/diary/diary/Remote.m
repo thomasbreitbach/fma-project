@@ -97,7 +97,7 @@ NSMutableData *_responseData;
     NSString *urlString = [NSString stringWithFormat:@"%@", UPLOAD_URL];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
-    NSData *thePhoto = UIImageJPEGRepresentation(image, 0.8);
+    NSData *thePhoto = UIImageJPEGRepresentation(image, 0.2);
     
     MIMEMultipartBody *multipartBody = [[MIMEMultipartBody alloc] init];
     [multipartBody appendData:thePhoto withName:@"photo" contentType:@"image/jpg" filename:filename];
