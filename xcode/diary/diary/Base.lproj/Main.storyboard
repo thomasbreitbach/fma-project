@@ -10,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="NewEntryID" title="First" id="CZ4-MO-1fc" customClass="NewEntryController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa" userLabel="rootview">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1322"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="1322"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" id="Wem-oN-R53">
@@ -353,7 +353,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XVj-rW-A5W" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="list.png" id="JAl-tR-fbr"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" shadowImage="holzBG.png" backIndicatorImage="holzBG.png" backIndicatorTransitionMaskImage="holzBG.png" id="gbe-a0-ZVF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gbe-a0-ZVF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -448,6 +448,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SUk-Ux-ee1"/>
+        <segue reference="28y-ys-xtd"/>
     </inferredMetricsTieBreakers>
 </document>
