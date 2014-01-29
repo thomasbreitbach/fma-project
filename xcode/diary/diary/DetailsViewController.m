@@ -52,8 +52,7 @@
     [self.text setEditable:false];
     //self.text.frame = CGRectMake(20,20,200,800);
     [self.textTitle sizeToFit];
-    
-    
+    [self.image setImage:[self loadImageFromUrl:@"http://images2.fanpop.com/image/photos/13800000/farrari-sports-cars-13821367-1280-960.jpg" ]];
 
 }
 
@@ -61,6 +60,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIImage*)loadImageFromUrl:(NSString*)path
+{
+    NSURL   *url = [NSURL URLWithString:path];
+    NSData  *data = [NSData dataWithContentsOfURL:url];
+    return [[UIImage alloc] initWithData:data];
 }
 
 @end
