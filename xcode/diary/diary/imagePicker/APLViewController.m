@@ -78,6 +78,8 @@
 {
     [super viewDidLoad];
     
+    self.apply.enabled = NO;
+    
     self.capturedImages = [[NSMutableArray alloc] init];
 
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
@@ -87,8 +89,6 @@
         [toolbarItems removeObjectAtIndex:2];
         [self.toolBar setItems:toolbarItems animated:NO];
     }
-    self.apply.enabled = NO;
-    
     
     
 }
@@ -269,7 +269,7 @@
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
-    self.apply.enabled = YES;
+    //self.apply.enabled = YES;
 
     [self.capturedImages addObject:image];
 
@@ -294,7 +294,14 @@
 - (IBAction)cancel:(id)sender {
     
     NewEntryController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
-        
+    
+    aplVC.titleI = self.title;
+    aplVC.text = self.text;
+    aplVC.mood = self.mood;
+    aplVC.date = self.date;
+    
+    
+    NSLog(@"%@, %@", self.title, self.text);
     
     [self presentModalViewController:aplVC animated:YES];
 
@@ -305,9 +312,15 @@
     
     aplVC.uiImage = self.imageView.image;
     
+    aplVC.titleI = self.title;
+    aplVC.text = self.text;
+    aplVC.mood = self.mood;
+    aplVC.date = self.date;
+    
+    NSLog(@"%@, %@", self.title, self.mood);
+    
     
     [self presentModalViewController:aplVC animated:YES];
-
     
    
 }

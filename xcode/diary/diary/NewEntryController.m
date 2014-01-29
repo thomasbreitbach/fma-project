@@ -51,15 +51,16 @@
 - (IBAction)pickTheImage:(id)sender
 {
     
-    NSLog(@"BUTTON:TOUCHED");
-    
     
     // Declare the view controller
-    APLViewController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];    
+    APLViewController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];
+    
+    aplVC.title = self.titleInput.text;
+    aplVC.text = self.textInput.text;
+    aplVC.mood = selectedMood;
+    aplVC.date = self.datePicker.date;
     
     [self presentModalViewController:aplVC animated:YES];
-    
-    //[self.navigationController pushViewController:detailsVC animated:YES];
     
 }
 
@@ -74,12 +75,24 @@
     [super viewDidLoad];
     [self.view endEditing:YES];
     
-    //self.imagePicker = [[APLViewController alloc] init];
     
     if(self.uiImage){
         self.theImage.image = self.uiImage;
     }
-        
+    
+    if(self.text){
+        self.textInput.text = self.text;
+    }
+    if(self.titleI){
+        self.titleInput.text = self.titleI;
+    }
+    if(self.mood){ //TODO
+        selectedMood = self.mood;
+    }
+    if(self.date){
+        self.datePicker.date = self.date;
+    }
+    
     
     self.scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, fW, fH)];
     self.scroll.pagingEnabled = false;
