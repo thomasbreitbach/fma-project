@@ -164,6 +164,7 @@
 
 - (IBAction)save:(UIButton *)sender {
     
+    
     Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
                                                  inManagedObjectContext:self.managedObjectContext];
     entry.title = self.titleInput.text;

@@ -27,6 +27,7 @@ NSMutableData *_responseData;
  *  GET REQUESTS
  */
 -(void) get:(NSURL *)url{
+    //HIER AUF INTERNET TESTEN
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 }
@@ -58,6 +59,7 @@ NSMutableData *_responseData;
  * POST REQUESTS
  */
 -(void) post:(NSURL *)url :(NSData *) requestBodyData{
+    //HIER TESTEN->ANDRE
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     request.HTTPMethod = @"POST";
