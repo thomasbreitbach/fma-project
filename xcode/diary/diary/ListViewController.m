@@ -11,6 +11,7 @@
 #import "Entry.h"
 #import "AppDelegate.h"
 #import "RemoteSynchronous.h"
+#import "Remote.h"
 #import "CoreDataWrapper.h"
 
 #define TEST_URL @"http://projects.drewiss.de/fma/rest/books/1/entries"
@@ -21,6 +22,9 @@
 @property (nonatomic,strong)NSMutableArray *entries;
 @property (nonatomic, copy) NSArray *items;
 @property (weak, nonatomic) IBOutlet UIRefreshControl *refreshOutlet;
+
+@property (nonatomic, retain) RemoteSynchronous *remote;
+@property (nonatomic, retain) Remote *remoteAsync;
 
 
 @end
@@ -50,9 +54,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.remote = [[RemoteSynchronous alloc] init];
+    self.remoteAsync = [[Remote alloc] init];
+    
+    [self getItems];
 
     [self.tableView setDelegate:self];
-    [self getItems];
+    
+    
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
@@ -195,56 +205,29 @@
     
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        
+        NSInteger id = [[[_entries objectAtIndex:indexPath.row]id] intValue];
+         NSLog(@"%d",id);
+        
+        [self.remoteAsync deleteEntry:1 :id];
+        
+        [self getItems];
+        [self.tableView reloadData];
+        
+    }
 }
 
- */
+
+
+
 - (IBAction)newEntry:(UIBarButtonItem *)sender {
     
     self.tabBarController.selectedIndex = 1;
@@ -252,28 +235,15 @@
 }
 
 -(void)getItems {
-    /*NSURL *url = [[NSURL alloc] initWithString:TEST_URL];
-    NSData *theData = [NSData dataWithContentsOfURL:url];
-    NSError *theError = nil;
-    NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
-    
-    if(theError == nil){
-        self.items = [theResult valueForKeyPath:@""];
-        NSLog(@"My dictionary is %@",theResult);
-    }
-     */
-    
-    RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
-    NSArray *d = [remote getEntries:@"1"];
+    NSArray *d = [self.remote getEntries:@"1"];
     CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
-    _entries = [cdw getCoreDataObjsFor:d];     
+    _entries = [cdw getCoreDataObjsFor:d];
     
     
 }
 - (IBAction)refresh:(id)sender {
     
     // TODO: hier ein update der Entries
-    NSLog(@"Refresh and stop again");
     [self getItems];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];

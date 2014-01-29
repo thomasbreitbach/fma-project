@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Remote : NSObject<NSURLConnectionDataDelegate>
+@interface Remote : NSObject
 
 -(id)init;
 
@@ -29,5 +29,7 @@
 //DELETE
 -(void) deleteBook:(NSInteger *) book_id;
 -(void) deleteEntry:(NSInteger *) book_id :(NSInteger *) entry_id;
+
+@property (weak, nonatomic) UIViewController *delegate;
 
 @end

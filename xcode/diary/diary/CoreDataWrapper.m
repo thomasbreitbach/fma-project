@@ -84,7 +84,9 @@
             
             NSDateFormatter *formatter;
             formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+            formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+            
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:s"];
             attributeValue = [formatter stringFromDate:[entry valueForKey:attributeName]];
         }else{
             attributeValue = [entry valueForKey:attributeName];
@@ -99,7 +101,7 @@
     NSString* jsonString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
     
     //NSLog(@"%@",jsonData);
-    //NSLog(@"%@",jsonString);
+    NSLog(@"%@",jsonString);
     
     return jsonData;
 }
