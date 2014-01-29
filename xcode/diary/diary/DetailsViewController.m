@@ -57,6 +57,16 @@
     [self.textTitle sizeToFit];
     [self.imageLoadingTitle setText:@"Foto wird geladen!"];
     [self loadAsyncImageFromURI:path];
+    
+//    [self saveFileToBundle:[self.moodImage image]];
+//    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *getImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+//    UIImage *img = [UIImage imageWithContentsOfFile:getImagePath];
+//
+//    
+//    [self.image setImage:img];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,7 +86,18 @@
         NSData  *data = [NSData dataWithContentsOfURL:url];
         [self.image setImage:[[UIImage alloc] initWithData:data]];
         [self.imageLoadingTitle setHidden:true];
+        
+        
     });
+}
+
+-(void)saveFileToBundle:(UIImage*)image
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:savedImagePath atomically:NO];
 }
 
 @end
