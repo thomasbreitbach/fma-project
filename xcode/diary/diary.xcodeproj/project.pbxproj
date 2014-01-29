@@ -71,7 +71,6 @@
 		4596CF1E186F2763006EC4E9 /* diary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diary-Prefix.pch"; sourceTree = "<group>"; };
 		4596CF1F186F2763006EC4E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4596CF20186F2763006EC4E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4596CF23186F2763006EC4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4596CF25186F2763006EC4E9 /* NewEntryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewEntryController.h; sourceTree = "<group>"; };
 		4596CF26186F2763006EC4E9 /* NewEntryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewEntryController.m; sourceTree = "<group>"; };
 		4596CF28186F2763006EC4E9 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		CA3FE679189977CD0088C085 /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noImage.png; path = diary/noImage.png; sourceTree = "<group>"; };
 		CA3FE67B189981110088C085 /* holzB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = holzB2.png; sourceTree = "<group>"; };
 		CA3FE67D1899868E0088C085 /* lunchimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchimage.png; sourceTree = "<group>"; };
+		CA3FE67F1899896D0088C085 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA72C5401898F71900A76A5B /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayView.xib; path = diary/OverlayView.xib; sourceTree = "<group>"; };
 		CA79B5581899410200F7D81E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		CA79B5591899410200F7D81E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 		4596CF22186F2763006EC4E9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4596CF23186F2763006EC4E9 /* Base */,
+				CA3FE67F1899896D0088C085 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

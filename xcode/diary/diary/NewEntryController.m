@@ -230,8 +230,6 @@
     
     self.tabBarController.selectedIndex = 0;
     
-    
-    
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
