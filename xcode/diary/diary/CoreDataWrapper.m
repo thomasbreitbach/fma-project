@@ -64,6 +64,7 @@
         //entry.locationsLong = [key objectForKey:@"location_long"];
         
         //entry.image = @"sad.png";
+        entry.image_path = [key objectForKey:@"image_path"];
 
         [entries addObject:entry];
         

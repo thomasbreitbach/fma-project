@@ -14,6 +14,7 @@
 @property (weak, nonatomic) NSString *dateT;
 @property (weak, nonatomic) UIImage *imageI;
 @property (weak, nonatomic) NSString *textT;
+@property (weak, nonatomic) NSString *imagePath;
 
 
 @end

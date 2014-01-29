@@ -56,7 +56,7 @@
     //self.text.frame = CGRectMake(20,20,200,800);
     [self.textTitle sizeToFit];
     [self.imageLoadingTitle setText:@"Foto wird geladen!"];
-    [self loadAsyncImageFromURI:path];
+    [self loadAsyncImageFromURI:self.imagePath];
     
 //    [self saveFileToBundle:[self.moodImage image]];
 //    
@@ -67,15 +67,7 @@
 //
 //    
 //    [self.image setImage:img];
-    
-    UIImage* image      = [self.image image];
-    
-    if ([image CGImage] == nil )
-    {
-        NSLog(@"no underlying data");
-    }else{
-        NSLog(@"ist gesetzt!");
-    }
+   NSLog(@"IMAGEPATH: %@", self.imagePath);
 }
 
 - (void)didReceiveMemoryWarning
