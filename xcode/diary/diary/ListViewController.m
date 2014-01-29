@@ -51,9 +51,11 @@
 {
     [super viewDidLoad];
 
-    [self.tableView setDelegate:self];
-    [self getItems];
+    self.urlToServer = @"www.drewiss.de";
+    [self testInternetConnection:self.urlToServer];
     
+    [self.tableView setDelegate:self];
+
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
    
@@ -74,6 +76,9 @@
     
     NSLog(@"%d", [_entries count]);
     NSLog([_entries description]);
+    
+    
+    [self getItems];
 
 }
 
@@ -263,10 +268,22 @@
     }
      */
     
-    RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
-    NSArray *d = [remote getEntries:@"1"];
-    CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
-    _entries = [cdw getCoreDataObjsFor:d];     
+    if([self getServerState])
+    {
+        RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
+        NSArray *d                = [remote getEntries:@"1"];
+        CoreDataWrapper *cdw      = [[CoreDataWrapper alloc]init];
+        _entries                  = [cdw getCoreDataObjsFor:d];
+        
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }else{
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [error show];
+        [self testInternetConnection:self.urlToServer];
+
+    }
+    
     
     
 }
@@ -274,9 +291,25 @@
     
     // TODO: hier ein update der Entries
     NSLog(@"Refresh and stop again");
+    [self testInternetConnection:self.urlToServer];
+
     [self getItems];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
+}
+
+
+- (void)testInternetConnection:(NSString *) host
+{
+    
+    internetReachableFoo = [Reachability reachabilityWithHostname:host];
+    // Internet is reachable
+    if(internetReachableFoo.isReachable)
+    {
+        [self setServerState:true];
+    }else{
+        [self setServerState:false];
+    }
 }
 
 @end
