@@ -43,6 +43,7 @@
 		CAC53F7C189697A5009C6F6B /* APLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F7B189697A5009C6F6B /* APLViewController.m */; };
 		CAE6747F188FE8FF008A702D /* selectImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE6747E188FE8FF008A702D /* selectImage.png */; };
 		DE978F3118905588002B205F /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE978F3018905588002B205F /* CoreDataWrapper.m */; };
+		DEB2FA6F1899125B00E5663B /* MIMEMultipartBody.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB2FA6E1899125B00E5663B /* MIMEMultipartBody.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		DE9471CD1886B5DA00AD9784 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		DE978F2F18905588002B205F /* CoreDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataWrapper.h; sourceTree = "<group>"; };
 		DE978F3018905588002B205F /* CoreDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataWrapper.m; sourceTree = "<group>"; };
+		DEB2FA6D1899125B00E5663B /* MIMEMultipartBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIMEMultipartBody.h; sourceTree = "<group>"; };
+		DEB2FA6E1899125B00E5663B /* MIMEMultipartBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIMEMultipartBody.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				DE978F3018905588002B205F /* CoreDataWrapper.m */,
 				45FF69FB188FEBF800441E6E /* Remote.h */,
 				45FF69FC188FEC1300441E6E /* Remote.m */,
+				DEB2FA6D1899125B00E5663B /* MIMEMultipartBody.h */,
+				DEB2FA6E1899125B00E5663B /* MIMEMultipartBody.m */,
 				45FF6A01189077FD00441E6E /* RemoteSynchronous.h */,
 				45FF6A02189077FD00441E6E /* RemoteSynchronous.m */,
 				45B8A3931870B1DD00BC0616 /* Tagebuch.jpg */,
@@ -364,6 +369,7 @@
 				45FF69FD188FEC1300441E6E /* Remote.m in Sources */,
 				45B8A38E186F603400BC0616 /* Book.m in Sources */,
 				459D772518869A1200732F4A /* DetailsViewController.m in Sources */,
+				DEB2FA6F1899125B00E5663B /* MIMEMultipartBody.m in Sources */,
 				45FF6A03189077FD00441E6E /* RemoteSynchronous.m in Sources */,
 				4596CF1D186F2763006EC4E9 /* main.m in Sources */,
 				CAC53F7C189697A5009C6F6B /* APLViewController.m in Sources */,
