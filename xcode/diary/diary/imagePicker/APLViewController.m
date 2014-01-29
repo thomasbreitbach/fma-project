@@ -46,6 +46,7 @@
  */
 
 #import "APLViewController.h"
+#import "NewEntryController.h"
 
 
 @interface APLViewController ()
@@ -267,6 +268,27 @@
 
 -(void)testLog{
     NSLog(@"INIT:CONTROLLER:TRUE");
+}
+
+- (IBAction)cancel:(id)sender {
+    
+    NewEntryController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
+        
+    
+    [self presentModalViewController:aplVC animated:YES];
+
+    
+}
+- (IBAction)apply:(id)sender {
+    NewEntryController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
+    
+    aplVC.uiImage = self.imageView.image;
+    
+    
+    [self presentModalViewController:aplVC animated:YES];
+
+    
+   
 }
 
 @end

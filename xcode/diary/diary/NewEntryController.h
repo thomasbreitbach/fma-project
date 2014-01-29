@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewEntryController : UIViewController
+@interface NewEntryController : UIViewController<NSURLConnectionDelegate>
 {
      int   selectedMood;
 }
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture;
+@property (weak, nonatomic) UIImage *uiImage;
+
+
 @end

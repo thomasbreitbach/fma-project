@@ -17,33 +17,9 @@
 
 NSMutableData *_responseData;
 
+
 -(id)init{
     return self;
-}
-
-//PROTOCOL METHODS
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    _responseData = [[NSMutableData alloc] init];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    [_responseData appendData:data];
-}
-
--(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    //request is complete! parse now
-    /*
-     * TODO PARSE DATA
-     */
-}
-
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    //ERROR
-    //check the error var
-}
-
--(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse{
-    return nil;
 }
 
 
@@ -51,7 +27,7 @@ NSMutableData *_responseData;
  *  GET REQUESTS
  */
 -(void) get:(NSURL *)url{
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 }
 
@@ -82,7 +58,8 @@ NSMutableData *_responseData;
  * POST REQUESTS
  */
 -(void) post:(NSURL *)url :(NSData *) requestBodyData{
-    NSMutableURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
     request.HTTPMethod = @"POST";
     
     [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -91,7 +68,7 @@ NSMutableData *_responseData;
     request.HTTPBody = requestBodyData;
     
     //fire asynchonous request
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self.delegate];
 }
 
 
@@ -120,7 +97,7 @@ NSMutableData *_responseData;
  * PUT REQUESTS
  */
 -(void) put:(NSURL *)url :(NSData *) requestBodyData{
-    NSMutableURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"PUT";
     
     [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -152,7 +129,7 @@ NSMutableData *_responseData;
  * DELETE REQUESTS
  */
 -(void) delete:(NSURL *)url{
-    NSMutableURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"DELETE";
     
     //fire asynchonous request

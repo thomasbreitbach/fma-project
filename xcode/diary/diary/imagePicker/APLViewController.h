@@ -46,7 +46,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "NewEntryController.h"
 
 @interface APLViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 -(void)testLog;
+
+@property (weak, nonatomic) NewEntryController *entryController;
+
 @end
