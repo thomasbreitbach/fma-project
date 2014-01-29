@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "CoreDataWrapper.h"
 #import "Remote.h"
+#import "ListViewController.h"
 
 @interface NewEntryController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
@@ -31,6 +32,8 @@
 @property (strong, nonatomic) APLViewController *imagePicker;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) NSMutableData *responseData;
 
 @end
 
@@ -52,9 +55,9 @@
     
     
     // Declare the view controller
-    APLViewController *detailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];
+    APLViewController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];    
     
-    [self presentModalViewController:detailsVC animated:YES];
+    [self presentModalViewController:aplVC animated:YES];
     
     //[self.navigationController pushViewController:detailsVC animated:YES];
     
@@ -72,6 +75,11 @@
     [self.view endEditing:YES];
     
     //self.imagePicker = [[APLViewController alloc] init];
+    
+    if(self.uiImage){
+        self.theImage.image = self.uiImage;
+    }
+        
     
     self.scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, fW, fH)];
     self.scroll.pagingEnabled = false;
@@ -169,6 +177,8 @@
     //entry.locationsLati = [key objectForKey:@"location_lati"];
     //entry.locationsLong = [key objectForKey:@"location_long"];
     
+    //self.theImage
+    
     //entry.image = @"";
     
     NSLog(@"%@",entry);
@@ -176,13 +186,55 @@
     CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
     
     NSData *json = [cdw getJSONFor:entry];
-    NSLog(@"%@",json);
+    //NSLog(@"%@",json);
     
     Remote *remote = [[Remote alloc] init];
-  
+    remote.delegate = self;
     
+    [remote postEntry:1 :json];
+    
+}
+
+//PROTOCOL METHODS
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    _responseData = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [_responseData appendData:data];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    //request is complete! parse now
+    
+    NSLog(@"NewEntryController: %@", _responseData);
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Glückwunsch"
+                                                    message:@"Speichern erfolgreich"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    // Declare the view controller
+    //ListViewController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];
+    
+    //[self presentModalViewController:aplVC animated:YES];
+    
+    self.tabBarController.selectedIndex = 0;
     
     
     
 }
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    //ERROR
+    //check the error var
+}
+
+-(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse{
+    return nil;
+}
+
 @end
