@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *textTitle;
 @property (strong, nonatomic) IBOutlet UIImageView *moodImage;
 @property (strong, nonatomic) IBOutlet UITextView *text;
+@property (strong, nonatomic) IBOutlet UILabel *imageLoadingTitle;
 
 @end
 
@@ -32,6 +33,8 @@
 
 - (void)viewDidLoad
 {
+    NSString *path = @"http://i.ebayimg.com/t/Buty-NIKE-AIR-RING-LEADER-LOW-size-46-30-cm-Mens-Shoes-/00/s/NTAwWDUwMA==/$T2eC16h,!)!E9s2fD)!+BQMq-7VUJw~~60_35.JPG";
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"%@",self.moodT);
@@ -52,8 +55,8 @@
     [self.text setEditable:false];
     //self.text.frame = CGRectMake(20,20,200,800);
     [self.textTitle sizeToFit];
-    [self.image setImage:[self loadImageFromUrl:@"http://images2.fanpop.com/image/photos/13800000/farrari-sports-cars-13821367-1280-960.jpg" ]];
-
+    [self.imageLoadingTitle setText:@"Foto wird geladen!"];
+    [self loadAsyncImageFromURI:path];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,11 +65,18 @@
     // Dispose of any resources that can be recreated.
 }
 
--(UIImage*)loadImageFromUrl:(NSString*)path
+-(void)loadAsyncImageFromURI:(NSString*)uri
 {
-    NSURL   *url = [NSURL URLWithString:path];
-    NSData  *data = [NSData dataWithContentsOfURL:url];
-    return [[UIImage alloc] initWithData:data];
+    dispatch_queue_t mQueue = dispatch_queue_create("de.thm.fma.diary", 0);
+    
+    dispatch_async(mQueue, ^{
+        printf("this is a block!\n");
+        
+        NSURL   *url = [NSURL URLWithString:uri];
+        NSData  *data = [NSData dataWithContentsOfURL:url];
+        [self.image setImage:[[UIImage alloc] initWithData:data]];
+        [self.imageLoadingTitle setHidden:true];
+    });
 }
 
 @end
