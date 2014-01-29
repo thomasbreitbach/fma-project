@@ -58,41 +58,12 @@
     self.remote = [[RemoteSynchronous alloc] init];
     self.remoteAsync = [[Remote alloc] init];
 
-
-    self.urlToServer = @"www.drewiss.de";
-
-
-    [self.tableView setDelegate:self];
-    
-    
-
-    
     [self.tableView setDelegate:self];
 
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
-   
-    /*
-    _entries = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i<10; i++) {
-        Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
-                                                     inManagedObjectContext:self.managedObjectContext];
-        entry.title = [NSString stringWithFormat:@"Title %d", i];
-        entry.date = [NSDate date];
-        entry.id = [[NSUUID UUID] UUIDString];
-        entry.image_path = @"Tagebuch.jpg";
-        
-        [_entries addObject:entry];
-    }
-     */
-    
-    NSLog(@"%d", [_entries count]);
-    NSLog([_entries description]);
-    
-    
+ 
     [self getItems];
-
 }
 
 - (void)didReceiveMemoryWarning
