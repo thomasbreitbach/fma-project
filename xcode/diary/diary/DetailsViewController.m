@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad
 {
-    NSString *path = @"http://i.ebayimg.com/t/Buty-NIKE-AIR-RING-LEADER-LOW-size-46-30-cm-Mens-Shoes-/00/s/NTAwWDUwMA==/$T2eC16h,!)!E9s2fD)!+BQMq-7VUJw~~60_35.JPG";
+    NSString *path = @"http://images2.fanpop.com/image/photos/13800000/farrari-sports-cars-13821367-1280-960.jpg";
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -67,6 +67,15 @@
 //
 //    
 //    [self.image setImage:img];
+    
+    UIImage* image      = [self.image image];
+    
+    if ([image CGImage] == nil )
+    {
+        NSLog(@"no underlying data");
+    }else{
+        NSLog(@"ist gesetzt!");
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,17 +86,14 @@
 
 -(void)loadAsyncImageFromURI:(NSString*)uri
 {
-    dispatch_queue_t mQueue = dispatch_queue_create("de.thm.fma.diary", 0);
     
-    dispatch_async(mQueue, ^{
-        printf("this is a block!\n");
-        
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    dispatch_async(queue, ^{
         NSURL   *url = [NSURL URLWithString:uri];
         NSData  *data = [NSData dataWithContentsOfURL:url];
-        [self.image setImage:[[UIImage alloc] initWithData:data]];
-        [self.imageLoadingTitle setHidden:true];
-        
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.image setImage:[[UIImage alloc] initWithData:data]];
+        });
     });
 }
 
