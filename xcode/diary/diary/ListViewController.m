@@ -26,6 +26,7 @@
 @property (nonatomic, retain) RemoteSynchronous *remote;
 @property (nonatomic, retain) Remote *remoteAsync;
 
+@property (strong, nonatomic) NSMutableData *responseData;
 
 @end
 
@@ -57,6 +58,7 @@
     
     self.remote = [[RemoteSynchronous alloc] init];
     self.remoteAsync = [[Remote alloc] init];
+    self.remoteAsync.delegate = self;
     
     [self getItems];
 
@@ -219,6 +221,8 @@
         
         [self.remoteAsync deleteEntry:1 :id];
         
+        
+        // TODO: auf callback vom asnyc warten
         [self getItems];
         [self.tableView reloadData];
         
@@ -248,5 +252,31 @@
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
+
+
+
+//PROTOCOL METHODS
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    _responseData = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [_responseData appendData:data];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    //request is complete! parse now
+    
+    
+//TODO:
+    
+    
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    //ERROR
+    //check the error var
+}
+
 
 @end
