@@ -32,9 +32,7 @@
 }
 
 - (void)viewDidLoad
-{
-    NSString *path = @"http://images2.fanpop.com/image/photos/13800000/farrari-sports-cars-13821367-1280-960.jpg";
-    
+{    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"%@",self.moodT);
