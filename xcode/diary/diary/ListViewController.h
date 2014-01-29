@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
-@interface ListViewController : UITableViewController
+@interface ListViewController : UITableViewController{
+    
+}
 
 @end

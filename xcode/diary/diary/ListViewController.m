@@ -58,35 +58,19 @@
     
     self.remote = [[RemoteSynchronous alloc] init];
     self.remoteAsync = [[Remote alloc] init];
+
     self.remoteAsync.delegate = self;
-    
-    [self getItems];
 
     [self.tableView setDelegate:self];
-    
-    
-    
+
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
-   
-    /*
-    _entries = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i<10; i++) {
-        Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
-                                                     inManagedObjectContext:self.managedObjectContext];
-        entry.title = [NSString stringWithFormat:@"Title %d", i];
-        entry.date = [NSDate date];
-        entry.id = [[NSUUID UUID] UUIDString];
-        entry.image_path = @"Tagebuch.jpg";
-        
-        [_entries addObject:entry];
+ 
+    [self getItems];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        UIImage *image = [UIImage imageNamed:@"holzB2.png"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     }
-     */
-    
-    NSLog(@"%d", [_entries count]);
-    NSLog([_entries description]);
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -214,6 +198,7 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         NSInteger id = [[[_entries objectAtIndex:indexPath.row]id] intValue];
@@ -221,10 +206,6 @@
         
         [self.remoteAsync deleteEntry:1 :id];
         
-        
-        // TODO: auf callback vom asnyc warten
-        [self getItems];
-        [self.tableView reloadData];
         
     }
 }
@@ -239,15 +220,40 @@
 }
 
 -(void)getItems {
-    NSArray *d = [self.remote getEntries:@"1"];
-    CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
-    _entries = [cdw getCoreDataObjsFor:d];
+
+    /*NSURL *url = [[NSURL alloc] initWithString:TEST_URL];
+    NSData *theData = [NSData dataWithContentsOfURL:url];
+    NSError *theError = nil;
+    NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
+    
+    if(theError == nil){
+        self.items = [theResult valueForKeyPath:@""];
+        NSLog(@"My dictionary is %@",theResult);
+    }
+     */
+    
+    if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
+    {
+        RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
+        NSArray *d                = [remote getEntries:@"1"];
+        CoreDataWrapper *cdw      = [[CoreDataWrapper alloc]init];
+        _entries                  = [cdw getCoreDataObjsFor:d];
+        
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+        
+    }else{
+        
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [error show];
+        
+
+    }
     
     
 }
 - (IBAction)refresh:(id)sender {
-    
-    // TODO: hier ein update der Entries
+
     [self getItems];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
@@ -266,16 +272,21 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     //request is complete! parse now
+    NSLog(@"foo");
     
-    
-//TODO:
-    
+    [self getItems];
+    [self.tableView reloadData];
     
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    //ERROR
-    //check the error var
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:@"Fehler beim Laden"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 

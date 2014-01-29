@@ -164,6 +164,8 @@
 
 - (IBAction)save:(UIButton *)sender {
     
+    if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
+    {
     Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
                                                  inManagedObjectContext:self.managedObjectContext];
     entry.title = self.titleInput.text;
@@ -192,6 +194,10 @@
     remote.delegate = self;
     
     [remote postEntry:1 :json];
+    }else{
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [error show];
+    }
     
 }
 
@@ -224,13 +230,16 @@
     
     self.tabBarController.selectedIndex = 0;
     
-    
-    
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    //ERROR
-    //check the error var
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:@"Fehler beim Speichern"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 -(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse{
