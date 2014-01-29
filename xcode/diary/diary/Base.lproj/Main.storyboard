@@ -173,9 +173,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="1409" y="-5"/>
-
         </scene>
         <!--Details View Controller - Title-->
         <scene sceneID="2XZ-aO-UWL">
@@ -441,8 +439,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-         <segue reference="99h-ma-1h9"/>
         <segue reference="28y-ys-xtd"/>
-
     </inferredMetricsTieBreakers>
 </document>

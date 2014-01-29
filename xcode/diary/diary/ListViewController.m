@@ -57,8 +57,6 @@
     
     self.remote = [[RemoteSynchronous alloc] init];
     self.remoteAsync = [[Remote alloc] init];
-    
-    [self getItems];
 
 
     self.urlToServer = @"www.drewiss.de";
