@@ -164,7 +164,8 @@
 
 - (IBAction)save:(UIButton *)sender {
     
-    
+    if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
+    {
     Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
                                                  inManagedObjectContext:self.managedObjectContext];
     entry.title = self.titleInput.text;
@@ -193,6 +194,10 @@
     remote.delegate = self;
     
     [remote postEntry:1 :json];
+    }else{
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [error show];
+    }
     
 }
 
