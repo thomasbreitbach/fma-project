@@ -401,7 +401,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Navigation Controller - Neuer Eintrag-->
         <scene sceneID="x3P-nZ-ugL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BTy-2g-Fay" sceneMemberID="viewController">
+                <navigationController id="BTy-2g-Fay" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Neuer Eintrag" image="addEntry.png" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="vgB-mB-wUR"/>

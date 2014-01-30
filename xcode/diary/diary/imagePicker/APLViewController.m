@@ -313,7 +313,7 @@
     aplVC.mood = self.mood;
     aplVC.date = self.date;
     
-    [self presentModalViewController:aplVC animated:YES];
+    [[self navigationController] pushViewController: aplVC animated:YES];
 }
 
 @end
