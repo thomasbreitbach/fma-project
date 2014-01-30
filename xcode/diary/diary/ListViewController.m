@@ -16,6 +16,8 @@
 
 #define TEST_URL @"http://projects.drewiss.de/fma/rest/books/1/entries"
 
+static BOOL fetchItems = NO;
+
 @interface ListViewController ()
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -31,6 +33,11 @@
 @end
 
 @implementation ListViewController
+
+
++(void) setFetchItems:(BOOL) fetch{
+    fetchItems = fetch;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -70,6 +77,14 @@
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
         UIImage *image = [UIImage imageNamed:@"holzB2.png"];
         [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{ 
+    if(fetchItems){
+        [self getItems];
+        fetchItems = NO;
     }
 }
 

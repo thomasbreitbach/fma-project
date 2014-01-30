@@ -300,7 +300,7 @@
     
     //[self presentModalViewController:aplVC animated:YES];
     
-
+    [ListViewController setFetchItems:YES];
     
     self.tabBarController.selectedIndex = 0;
 }
