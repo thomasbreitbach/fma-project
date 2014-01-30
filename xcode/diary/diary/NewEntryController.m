@@ -95,6 +95,10 @@
     }
     if(self.textI){
         self.textInput.text = self.textI;
+    }else{
+        self.textInput.text = @"Dein Text ...";
+        self.textInput.textColor = [UIColor lightGrayColor];
+        self.textInput.delegate = self;
     }
     if(self.titleI){
         self.titleInput.text = self.titleI;
@@ -308,6 +312,23 @@
 
 -(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse{
     return nil;
+}
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    self.textInput.text = @"";
+    self.textInput.textColor = [UIColor blackColor];
+    return YES;
+}
+
+-(void) textViewDidChange:(UITextView *)textView
+{
+    
+    if(self.textInput.text.length == 0){
+        self.textInput.textColor = [UIColor lightGrayColor];
+        self.textInput.text = @"Comment";
+        [self.textInput resignFirstResponder];
+    }
 }
 
 @end
