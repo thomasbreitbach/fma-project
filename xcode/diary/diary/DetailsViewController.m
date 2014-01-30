@@ -82,11 +82,13 @@
         NSURL   *url = [NSURL URLWithString:uri];
         NSData  *data = [NSData dataWithContentsOfURL:url];
         dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.image setImage:[[UIImage alloc] initWithData:data]];
+            UIImage *img = [[UIImage alloc] initWithData:data];
+            [self.image setImage:img];
         });
     });
 }
 
+/*
 -(void)saveFileToBundle:(UIImage*)image
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -95,5 +97,6 @@
     NSData *imageData = UIImagePNGRepresentation(image);
     [imageData writeToFile:savedImagePath atomically:NO];
 }
+ */
 
 @end

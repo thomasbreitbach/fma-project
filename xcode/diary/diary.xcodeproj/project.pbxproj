@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45230906189A4EB9001634D9 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 45230905189A4EB9001634D9 /* Entry.m */; };
+		45230908189A5B8F001634D9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45230907189A5B8F001634D9 /* loading.gif */; };
 		4596CF11186F2763006EC4E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4596CF10186F2763006EC4E9 /* Foundation.framework */; };
 		4596CF13186F2763006EC4E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4596CF12186F2763006EC4E9 /* CoreGraphics.framework */; };
 		4596CF15186F2763006EC4E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4596CF14186F2763006EC4E9 /* UIKit.framework */; };
@@ -62,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45230904189A4EB9001634D9 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		45230905189A4EB9001634D9 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		45230907189A5B8F001634D9 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		4596CF0D186F2763006EC4E9 /* diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4596CF10186F2763006EC4E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4596CF12186F2763006EC4E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -114,8 +119,6 @@
 		CAC53F7A189697A5009C6F6B /* APLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APLViewController.h; path = imagePicker/APLViewController.h; sourceTree = "<group>"; };
 		CAC53F7B189697A5009C6F6B /* APLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APLViewController.m; path = imagePicker/APLViewController.m; sourceTree = "<group>"; };
 		CAE6747E188FE8FF008A702D /* selectImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectImage.png; sourceTree = "<group>"; };
-		DE9471CC1886B5DA00AD9784 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
-		DE9471CD1886B5DA00AD9784 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		DE978F2F18905588002B205F /* CoreDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataWrapper.h; sourceTree = "<group>"; };
 		DE978F3018905588002B205F /* CoreDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataWrapper.m; sourceTree = "<group>"; };
 		DEB2FA6D1899125B00E5663B /* MIMEMultipartBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIMEMultipartBody.h; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 				CA876372188FD9BD006DEB57 /* rhappy.png */,
 				CA876373188FD9BD006DEB57 /* feelGood.png */,
 				45FF6A04189424C800441E6E /* plus.png */,
+				45230907189A5B8F001634D9 /* loading.gif */,
 				45B8A38F186F723600BC0616 /* Book.xcdatamodel */,
 				4596CF16186F2763006EC4E9 /* diary */,
 				4596CF38186F2763006EC4E9 /* diaryTests */,
@@ -216,8 +220,8 @@
 				45B8A38C186F603400BC0616 /* Book.m */,
 				4596CF1F186F2763006EC4E9 /* AppDelegate.h */,
 				4596CF20186F2763006EC4E9 /* AppDelegate.m */,
-				DE9471CC1886B5DA00AD9784 /* Entry.h */,
-				DE9471CD1886B5DA00AD9784 /* Entry.m */,
+				45230904189A4EB9001634D9 /* Entry.h */,
+				45230905189A4EB9001634D9 /* Entry.m */,
 				4596CF22186F2763006EC4E9 /* Main.storyboard */,
 				45B8A386186F519B00BC0616 /* ListViewController.h */,
 				45B8A387186F519B00BC0616 /* ListViewController.m */,
@@ -361,6 +365,7 @@
 				CA876377188FD9BD006DEB57 /* feelGood.png in Resources */,
 				45FF6A05189424C800441E6E /* plus.png in Resources */,
 				4596CF24186F2763006EC4E9 /* Main.storyboard in Resources */,
+				45230908189A5B8F001634D9 /* loading.gif in Resources */,
 				CAE6747F188FE8FF008A702D /* selectImage.png in Resources */,
 				CAC53F761896871C009C6F6B /* addEntry.png in Resources */,
 				CA3FE67A189977CD0088C085 /* noImage.png in Resources */,
@@ -387,6 +392,7 @@
 				4596CF2A186F2763006EC4E9 /* SecondViewController.m in Sources */,
 				DE978F3118905588002B205F /* CoreDataWrapper.m in Sources */,
 				4596CF21186F2763006EC4E9 /* AppDelegate.m in Sources */,
+				45230906189A4EB9001634D9 /* Entry.m in Sources */,
 				CA79B55A1899410200F7D81E /* Reachability.m in Sources */,
 				DED3157E1899A24D0021FE88 /* NSString+URLTools.m in Sources */,
 				4596CF27186F2763006EC4E9 /* NewEntryController.m in Sources */,
