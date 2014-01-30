@@ -126,7 +126,7 @@
         if (entry.imageData) {
             // image bereits geladen
             UIImage *currentImage = [[UIImage alloc] initWithData:entry.imageData];
-            entryImage.image = currentImage;
+            entryImage.image = [self centerCropImage:currentImage];
             NSLog(@"bild schon da");
             
         }else if (![entry.image_path isEqualToString:@""]){
@@ -156,7 +156,7 @@
                     entry.imageData = UIImageJPEGRepresentation(downloadedImage,0.7);
                     
                     // update UI
-                    entryImage.image = downloadedImage;
+                    entryImage.image = [self centerCropImage:downloadedImage];
                 });
             });
             
@@ -314,6 +314,21 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+// Returns largest possible centered cropped image.
+- (UIImage *)centerCropImage:(UIImage *)image
+{
+    // Use smallest side length as crop square length
+    CGFloat squareLength = MIN(image.size.width, image.size.height);
+    // Center the crop area
+    CGRect clippedRect = CGRectMake((image.size.width - squareLength) / 2, (image.size.height - squareLength) / 2, squareLength, squareLength);
+    
+    // Crop logic
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], clippedRect);
+    UIImage * croppedImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return croppedImage;
 }
 
 
