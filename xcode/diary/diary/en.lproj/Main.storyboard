@@ -217,11 +217,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="3dp-nI-IzE">
-                        <barButtonItem key="rightBarButtonItem" title="Bearbeiten" style="plain" id="JUS-su-fGc">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="3dp-nI-IzE"/>
                     <connections>
                         <outlet property="date" destination="5XZ-9B-qfb" id="uwz-aA-mlq"/>
                         <outlet property="image" destination="yVX-9B-fSv" id="dPq-aT-cKM"/>
