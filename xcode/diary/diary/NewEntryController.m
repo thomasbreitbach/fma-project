@@ -93,13 +93,6 @@
     if(self.uiImage){
         self.theImage.image = self.uiImage;
     }
-    if(self.textI){
-        self.textInput.text = self.textI;
-    }else{
-        self.textInput.text = @"Dein Text ...";
-        self.textInput.textColor = [UIColor lightGrayColor];
-        self.textInput.delegate = self;
-    }
     if(self.titleI){
         self.titleInput.text = self.titleI;
     }
@@ -133,6 +126,16 @@
     [self.view addSubview:self.scroll];
     
 
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    if(self.textI){
+        self.textInput.text = self.textI;
+    }else{
+        self.textInput.text = @"Dein Text ...";
+        self.textInput.textColor = [UIColor lightGrayColor];
+        self.textInput.delegate = self;
+    }
 }
 
 - (void)didReceiveMemoryWarning
