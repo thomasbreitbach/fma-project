@@ -10,11 +10,11 @@
             <objects>
                 <viewController storyboardIdentifier="NewEntryID" title="First" id="CZ4-MO-1fc" customClass="NewEntryController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa" userLabel="rootview">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="2614"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" id="Wem-oN-R53">
-                                <rect key="frame" x="0.0" y="0.0" width="325" height="2614"/>
+                                <rect key="frame" x="0.0" y="0.0" width="325" height="1100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="TJJ-MA-QZf" userLabel="subview">
@@ -153,8 +153,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Neuer Eintrag" image="addEntry.png" id="u1e-5L-l1D"/>
-                    <navigationItem key="navigationItem" title="asdasd" id="LbC-k6-njv"/>
+                    <navigationItem key="navigationItem" title="Neuer Eintrag" id="LbC-k6-njv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="sfz-FY-0dh"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="J2D-sh-JEI" id="XG9-CE-IT0"/>
@@ -173,7 +174,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1409" y="-5"/>
+            <point key="canvasLocation" x="1959" y="-145"/>
         </scene>
         <!--Details View Controller - Title-->
         <scene sceneID="2XZ-aO-UWL">
@@ -227,7 +228,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRh-yT-RIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1867" y="-624"/>
+            <point key="canvasLocation" x="2389" y="-580"/>
         </scene>
         <!--List View Controller - ListViewController-->
         <scene sceneID="arI-Vh-199">
@@ -290,7 +291,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4K6-aq-VkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="-1068"/>
+            <point key="canvasLocation" x="1924" y="-1132"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -306,12 +307,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </tabBar>
                     <connections>
                         <segue destination="XVj-rW-A5W" kind="relationship" relationship="viewControllers" id="xTD-9l-woj"/>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
+                        <segue destination="BTy-2g-Fay" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-83" y="156"/>
+            <point key="canvasLocation" x="177" y="-316"/>
         </scene>
         <!--Navigation Controller - Liste-->
         <scene sceneID="R9j-iO-l1F">
@@ -327,8 +328,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <segue destination="6jI-XC-TSV" kind="relationship" relationship="rootViewController" id="PhY-ee-Soa"/>
                         <segue destination="5Iy-vR-vFS" kind="push" id="8C3-6d-o5Q"/>
-                        <segue destination="CZ4-MO-1fc" kind="push" id="28y-ys-xtd"/>
-                        <segue destination="ezl-52-hzb" kind="push" id="99h-ma-1h9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUd-o9-bbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -401,7 +400,28 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MX2-7X-KBy" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="-1493"/>
+            <point key="canvasLocation" x="1535" y="-325"/>
+        </scene>
+        <!--Navigation Controller - Neuer Eintrag-->
+        <scene sceneID="x3P-nZ-ugL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BTy-2g-Fay" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Neuer Eintrag" image="addEntry.png" id="u1e-5L-l1D"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="vgB-mB-wUR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GKc-1f-EfM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="rootViewController" id="G5F-L6-rz2"/>
+                        <segue destination="ezl-52-hzb" kind="push" id="VBE-ZA-5pF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqh-h1-gkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="925" y="111"/>
         </scene>
     </scenes>
     <resources>
@@ -420,7 +440,4 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="SUk-Ux-ee1"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -74,7 +74,10 @@
     aplVC.mood = selectedMood;
     aplVC.date = self.datePicker.date;
     
-    [self presentModalViewController:aplVC animated:YES];
+    
+    [self.navigationController pushViewController:aplVC animated:YES];
+    
+    //[self presentModalViewController:aplVC animated:YES];
     
 }
 
@@ -89,6 +92,8 @@
 
     [super viewDidLoad];
     [self.view endEditing:YES];
+    
+     self.edgesForExtendedLayout = UIRectEdgeAll;
  
     if(self.uiImage){
         self.theImage.image = self.uiImage;
