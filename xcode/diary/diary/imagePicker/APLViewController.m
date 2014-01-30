@@ -89,8 +89,6 @@
         [toolbarItems removeObjectAtIndex:2];
         [self.toolBar setItems:toolbarItems animated:NO];
     }
-    
-    
 }
 
 /*
@@ -269,7 +267,7 @@
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
-    //self.apply.enabled = YES;
+    self.apply.enabled = YES;
 
     [self.capturedImages addObject:image];
 
@@ -293,19 +291,14 @@
 
 - (IBAction)cancel:(id)sender {
     
-    NewEntryController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
+    NewEntryController *newEntryC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
     
-    aplVC.titleI = self.title;
-    aplVC.text = self.text;
-    aplVC.mood = self.mood;
-    aplVC.date = self.date;
+    newEntryC.titleI = self.title;
+    newEntryC.textI = self.text;
+    newEntryC.mood = self.mood;
+    newEntryC.date = self.date;
     
-    
-    NSLog(@"%@, %@", self.title, self.text);
-    
-    [self presentModalViewController:aplVC animated:YES];
-
-    
+    [self presentModalViewController:newEntryC animated:YES];
 }
 - (IBAction)apply:(id)sender {
     NewEntryController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
@@ -313,16 +306,12 @@
     aplVC.uiImage = self.imageView.image;
     
     aplVC.titleI = self.title;
-    aplVC.text = self.text;
+    aplVC.textI = self.text;
     aplVC.mood = self.mood;
     aplVC.date = self.date;
-    
-    NSLog(@"%@, %@", self.title, self.mood);
-    
+   
     
     [self presentModalViewController:aplVC animated:YES];
-    
-   
 }
 
 @end

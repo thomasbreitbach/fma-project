@@ -53,10 +53,10 @@
 
 @property (weak, nonatomic) NewEntryController *entryController;
 
-@property (weak, nonatomic) NSString *title;
-@property (weak, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSDate *date;
 @property (nonatomic) int mood;
-@property (weak, nonatomic) NSString *text;
+@property (strong, nonatomic) NSString *text;
 
 
 @end

@@ -84,6 +84,8 @@
     
     self.remote = [[Remote alloc] init];
     self.remote.delegate = self;
+    
+    NSLog(@"NewEntryController.textI: %@", self.textI);
 
     [super viewDidLoad];
     [self.view endEditing:YES];
@@ -91,8 +93,8 @@
     if(self.uiImage){
         self.theImage.image = self.uiImage;
     }
-    if(self.text){
-        self.textInput.text = self.text;
+    if(self.textI){
+        self.textInput.text = self.textI;
     }
     if(self.titleI){
         self.titleInput.text = self.titleI;

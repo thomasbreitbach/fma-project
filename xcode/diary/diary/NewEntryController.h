@@ -17,9 +17,9 @@
 @property (weak, nonatomic) UIImage *uiImage;
 
 
-@property (weak, nonatomic) NSString *titleI;
-@property (weak, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *titleI;
+@property (strong, nonatomic) NSDate *date;
 @property (nonatomic) int mood;
-@property (weak, nonatomic) NSString *text;
+@property (strong, nonatomic) NSString *textI;
 
 @end
