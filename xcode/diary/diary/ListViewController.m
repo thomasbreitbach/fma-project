@@ -213,15 +213,7 @@
         
     }
 }
-
-
-
-
-- (IBAction)newEntry:(UIBarButtonItem *)sender {
-    
-    self.tabBarController.selectedIndex = 1;
-    
-}
+ 
 
 -(void)getItems {
 
