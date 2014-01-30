@@ -124,9 +124,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <action selector="changeMood:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="TDb-50-ckD"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectImage.png" id="b1i-vV-6Yr">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="b1i-vV-6Yr">
                                                 <rect key="frame" x="20" y="377" width="285" height="210"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.82099184782608692" green="0.82099184782608692" blue="0.82099184782608692" alpha="1" colorSpace="calibratedRGB"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="201-y0-v4j">
                                                 <rect key="frame" x="22" y="377" width="283" height="210"/>
@@ -412,7 +413,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="noImage.png" width="1024" height="768"/>
         <image name="rhappy.png" width="128" height="128"/>
         <image name="sad.png" width="128" height="128"/>
-        <image name="selectImage.png" width="285" height="210"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
