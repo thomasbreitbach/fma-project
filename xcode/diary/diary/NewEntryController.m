@@ -300,6 +300,8 @@
     
     //[self presentModalViewController:aplVC animated:YES];
     
+
+    
     self.tabBarController.selectedIndex = 0;
 }
 
