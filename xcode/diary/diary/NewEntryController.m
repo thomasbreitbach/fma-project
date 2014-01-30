@@ -20,6 +20,8 @@
 #define MOOD_SUPER_SAD      4
 #define MOOD_UNDEFINDED     -1
 
+#define STD_TEXTVIEW_TEXT @"Dein Text .."
+
 @interface NewEntryController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIView *rootview;
@@ -84,8 +86,6 @@
     
     self.remote = [[Remote alloc] init];
     self.remote.delegate = self;
-    
-    NSLog(@"NewEntryController.textI: %@", self.textI);
 
     [super viewDidLoad];
     [self.view endEditing:YES];
@@ -132,7 +132,7 @@
     if(self.textI){
         self.textInput.text = self.textI;
     }else{
-        self.textInput.text = @"Dein Text ...";
+        self.textInput.text = STD_TEXTVIEW_TEXT;
         self.textInput.textColor = [UIColor lightGrayColor];
         self.textInput.delegate = self;
     }
@@ -321,8 +321,11 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    self.textInput.text = @"";
-    self.textInput.textColor = [UIColor blackColor];
+    if(self.textInput.textColor == [UIColor lightGrayColor])
+    {
+        self.textInput.text = @"";
+        self.textInput.textColor = [UIColor blackColor];
+    }
     return YES;
 }
 
@@ -331,7 +334,7 @@
     
     if(self.textInput.text.length == 0){
         self.textInput.textColor = [UIColor lightGrayColor];
-        self.textInput.text = @"Comment";
+        self.textInput.text = STD_TEXTVIEW_TEXT;
         [self.textInput resignFirstResponder];
     }
 }
