@@ -106,9 +106,6 @@
         // Display entries in the table cell
         Entry *entry = [_entries objectAtIndex:indexPath.row];
         
-        UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
-        entryImage.image = [UIImage imageNamed:entry.image_path];
-        
         UILabel *entryTitle = (UILabel *)[cell viewWithTag:101];
         entryTitle.text = entry.title;
         
@@ -120,6 +117,51 @@
         [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
         
         entryDate.text = [formatter stringFromDate:entry.date];
+        
+        
+        // img stuff
+        
+         UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
+        
+        if (entry.imageData) {
+            // image bereits geladen
+            UIImage *currentImage = [[UIImage alloc] initWithData:entry.imageData];
+            entryImage.image = currentImage;
+            NSLog(@"bild schon da");
+            
+        }else if (![entry.image_path isEqualToString:@""]){
+            
+            NSLog(@"bild wird geladen");
+            
+            // image muss geladen werden
+            
+            //placeholder setzen
+            UIImage *palceholderImage = [UIImage imageNamed:@"loading.gif"];
+            entryImage.image = palceholderImage;
+            entry.imageData = UIImageJPEGRepresentation(palceholderImage,0.7);
+            
+            
+            // download the image
+            // creating the download queue
+            dispatch_queue_t downloadQueue=dispatch_queue_create("thumbnailImage", NULL);
+            
+            dispatch_async(downloadQueue, ^{
+                
+                UIImage *downloadedImage = [self.remote getImage:entry.image_path];
+                
+                //Need to go back to the main thread since this is UI related
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    // store the downloaded image
+                    entry.imageData = UIImageJPEGRepresentation(downloadedImage,0.7);
+                    
+                    // update UI
+                    entryImage.image = downloadedImage;
+                });
+            });
+            
+        }
+        
 
         
     } else {
@@ -182,9 +224,9 @@
         
         detailsVC.textT = [[_entries objectAtIndex:indexPath.row]text];
         
-        /*
-        detailsVC.imageI = [UIImage imageNamed:[[_entries objectAtIndex:indexPath.row]image_path] ];
-         */
+        if([[_entries objectAtIndex:indexPath.row]imageData]){
+            detailsVC.imageI = [[UIImage alloc] initWithData:[[_entries objectAtIndex:indexPath.row]imageData]];
+        }
         
         detailsVC.imagePath = [[_entries objectAtIndex:indexPath.row]image_path];
         
@@ -217,16 +259,6 @@
 
 -(void)getItems {
 
-    /*NSURL *url = [[NSURL alloc] initWithString:TEST_URL];
-    NSData *theData = [NSData dataWithContentsOfURL:url];
-    NSError *theError = nil;
-    NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
-    
-    if(theError == nil){
-        self.items = [theResult valueForKeyPath:@""];
-        NSLog(@"My dictionary is %@",theResult);
-    }
-     */
     
     if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
     {
@@ -242,7 +274,6 @@
         
         UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
-        
 
     }
     

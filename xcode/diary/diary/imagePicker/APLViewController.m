@@ -79,6 +79,7 @@
     [super viewDidLoad];
     
     self.apply.enabled = NO;
+    self.apply.alpha = 0.5;
     
     self.capturedImages = [[NSMutableArray alloc] init];
 
@@ -268,6 +269,8 @@
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     self.apply.enabled = YES;
+    self.apply.alpha = 1;
+
 
     [self.capturedImages addObject:image];
 
@@ -309,7 +312,6 @@
     aplVC.textI = self.text;
     aplVC.mood = self.mood;
     aplVC.date = self.date;
-   
     
     [self presentModalViewController:aplVC animated:YES];
 }
