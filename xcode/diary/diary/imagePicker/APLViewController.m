@@ -292,17 +292,6 @@
     NSLog(@"INIT:CONTROLLER:TRUE");
 }
 
-- (IBAction)cancel:(id)sender {
-    
-    NewEntryController *newEntryC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
-    
-    newEntryC.titleI = self.title;
-    newEntryC.textI = self.text;
-    newEntryC.mood = self.mood;
-    newEntryC.date = self.date;
-    
-    [self presentModalViewController:newEntryC animated:YES];
-}
 - (IBAction)apply:(id)sender {
     NewEntryController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NewEntryID"];
     

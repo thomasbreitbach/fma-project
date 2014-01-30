@@ -85,7 +85,7 @@
 {
     float fH = self.view.frame.size.height;
     float fW = self.view.frame.size.width;
-    float ofH = 800;
+    float ofH = 870;
     
     self.remote = [[Remote alloc] init];
     self.remote.delegate = self;
@@ -93,7 +93,12 @@
     [super viewDidLoad];
     [self.view endEditing:YES];
     
-     self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.translucent = NO;
+    self.tabBarController.tabBar.translucent = NO;
+    
+    self.extendedLayoutIncludesOpaqueBars = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
  
     if(self.uiImage){
         self.theImage.image = self.uiImage;
