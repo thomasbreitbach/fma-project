@@ -14,6 +14,12 @@
 #import "Remote.h"
 #import "ListViewController.h"
 
+#define MOOD_SUPER_HAPPY    1
+#define MOOD_HAPPY          2
+#define MOOD_SAD            3
+#define MOOD_SUPER_SAD      4
+#define MOOD_UNDEFINDED     -1
+
 @interface NewEntryController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIView *rootview;
@@ -78,30 +84,29 @@
     
     self.remote = [[Remote alloc] init];
     self.remote.delegate = self;
-    
-    selectedMood = -1;
-    
+
     [super viewDidLoad];
     [self.view endEditing:YES];
-    
-    
+ 
     if(self.uiImage){
         self.theImage.image = self.uiImage;
     }
-    
     if(self.text){
         self.textInput.text = self.text;
     }
     if(self.titleI){
         self.titleInput.text = self.titleI;
     }
-    if(self.mood){ //TODO
+    if(self.mood != MOOD_UNDEFINDED){
         selectedMood = self.mood;
+    }else{
+        selectedMood = MOOD_UNDEFINDED;
     }
     if(self.date){
         self.datePicker.date = self.date;
     }
     
+    [self setMoodEmoticonAsSelected:selectedMood];
     
     self.scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, fW, fH)];
     self.scroll.pagingEnabled = false;
@@ -145,41 +150,56 @@
     
     if([senderTitle isEqualToString:buttonSuperHappyTitle])
     {
-        [self.superHappy setAlpha:1.0];
-        [self.happy setAlpha:0.5];
-        [self.sad setAlpha:0.5];
-        [self.superSad setAlpha:0.5];
-        
-        selectedMood = 1;
+        selectedMood = MOOD_SUPER_HAPPY;
     }
     if([senderTitle isEqualToString:buttonHappyTitle])
     {
-        [self.superHappy setAlpha:0.5];
-        [self.happy setAlpha:1.0];
-        [self.sad setAlpha:0.5];
-        [self.superSad setAlpha:0.5];
-        
-        selectedMood = 2;
+        selectedMood = MOOD_HAPPY;
     }
     if([senderTitle isEqualToString:buttonSadTitle])
     {
-        [self.superHappy setAlpha:0.5];
-        [self.happy setAlpha:0.5];
-        [self.sad setAlpha:1.5];
-        [self.superSad setAlpha:0.5];
-        
-        selectedMood = 3;
+        selectedMood = MOOD_SAD;
     }
     if([senderTitle isEqualToString:buttonSuperSadTitle])
     {
-        [self.superHappy setAlpha:0.5];
-        [self.happy setAlpha:0.5];
-        [self.sad setAlpha:0.5];
-        [self.superSad setAlpha:1.0];
-        
-        selectedMood = 4;
+        selectedMood = MOOD_SUPER_SAD;
     }
-    
+    [self setMoodEmoticonAsSelected:selectedMood];
+}
+
+-(void) setMoodEmoticonAsSelected:(NSInteger) mood{
+    switch (mood) {
+        case MOOD_SUPER_HAPPY:
+            [self.superHappy setAlpha:1.0];
+            [self.happy setAlpha:0.5];
+            [self.sad setAlpha:0.5];
+            [self.superSad setAlpha:0.5];
+            break;
+        case MOOD_HAPPY:
+            [self.superHappy setAlpha:0.5];
+            [self.happy setAlpha:1.0];
+            [self.sad setAlpha:0.5];
+            [self.superSad setAlpha:0.5];
+            break;
+        case MOOD_SAD:
+            [self.superHappy setAlpha:0.5];
+            [self.happy setAlpha:0.5];
+            [self.sad setAlpha:1.5];
+            [self.superSad setAlpha:0.5];
+            break;
+        case MOOD_SUPER_SAD:
+            [self.superHappy setAlpha:0.5];
+            [self.happy setAlpha:0.5];
+            [self.sad setAlpha:0.5];
+            [self.superSad setAlpha:1.0];
+            break;
+        default:
+            [self.superHappy setAlpha:1.0];
+            [self.happy setAlpha:1.0];
+            [self.sad setAlpha:1.0];
+            [self.superSad setAlpha:1.0];
+            break;
+    }
 }
 
 
