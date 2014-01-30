@@ -224,9 +224,9 @@
         
         detailsVC.textT = [[_entries objectAtIndex:indexPath.row]text];
         
-        /*
-        detailsVC.imageI = [UIImage imageNamed:[[_entries objectAtIndex:indexPath.row]image_path] ];
-         */
+        if([[_entries objectAtIndex:indexPath.row]imageData]){
+            detailsVC.imageI = [[UIImage alloc] initWithData:[[_entries objectAtIndex:indexPath.row]imageData]];
+        }
         
         detailsVC.imagePath = [[_entries objectAtIndex:indexPath.row]image_path];
         
@@ -259,16 +259,6 @@
 
 -(void)getItems {
 
-    /*NSURL *url = [[NSURL alloc] initWithString:TEST_URL];
-    NSData *theData = [NSData dataWithContentsOfURL:url];
-    NSError *theError = nil;
-    NSDictionary *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
-    
-    if(theError == nil){
-        self.items = [theResult valueForKeyPath:@""];
-        NSLog(@"My dictionary is %@",theResult);
-    }
-     */
     
     if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
     {
@@ -284,7 +274,6 @@
         
         UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
-        
 
     }
     

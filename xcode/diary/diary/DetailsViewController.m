@@ -53,19 +53,20 @@
     [self.text setEditable:false];
     //self.text.frame = CGRectMake(20,20,200,800);
     [self.textTitle sizeToFit];
-    [self.imageLoadingTitle setText:@"Foto wird geladen!"];
-    [self loadAsyncImageFromURI:[@"http://projects.drewiss.de/fma/rest/photos/" stringByAppendingString:self.imagePath]];
     
-//    [self saveFileToBundle:[self.moodImage image]];
-//    
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSString *getImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
-//    UIImage *img = [UIImage imageWithContentsOfFile:getImagePath];
-//
-//    
-//    [self.image setImage:img];
-   NSLog(@"IMAGEPATH: %@", self.imagePath);
+    if(self.imageI){
+        self.image.image = self.imageI;
+         NSLog(@"img schon da");
+        
+    }else{
+        //download
+        NSLog(@"download");
+        [self.imageLoadingTitle setText:@"Foto wird geladen!"];
+        [self loadAsyncImageFromURI:[@"http://projects.drewiss.de/fma/rest/photos/" stringByAppendingString:self.imagePath]];
+
+    }
+    
+    NSLog(@"IMAGEPATH: %@", self.imagePath);
 }
 
 - (void)didReceiveMemoryWarning
