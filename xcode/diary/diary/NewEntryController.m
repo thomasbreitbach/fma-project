@@ -225,11 +225,20 @@
 
 - (IBAction)save:(UIButton *)sender {
     
+    [self saveIt];
+    
+}
+- (IBAction)saveButton:(id)sender {
+    [self saveIt];
+}
+
+-(void)saveIt
+{
     if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
     {
         //CONSTRUCT ENTRY OBJECT TO SEND
         Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
-                                                 inManagedObjectContext:self.managedObjectContext];
+                                                     inManagedObjectContext:self.managedObjectContext];
         entry.title = self.titleInput.text;
         entry.date = self.datePicker.date;
         //entry.id = [key objectForKey:@"id"]; //TODO ID erzeugen
@@ -246,7 +255,7 @@
         }
         
         NSLog(@"%@",entry);
-    
+        
         //object to json
         CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
         NSData *json = [cdw getJSONFor:entry];
@@ -257,7 +266,6 @@
         UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Sever ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
     }
-    
 }
 
 -(void) showAlert{
