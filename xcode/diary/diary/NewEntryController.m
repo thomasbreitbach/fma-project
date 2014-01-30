@@ -130,6 +130,11 @@
     self.scroll.contentSize = CGSizeMake(fW, ofH);
     [self.view addSubview:self.scroll];
     
+    
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        UIImage *image = [UIImage imageNamed:@"holzB2.png"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
 
 }
 
