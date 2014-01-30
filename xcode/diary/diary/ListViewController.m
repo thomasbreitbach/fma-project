@@ -160,6 +160,16 @@
                 });
             });
             
+        }else{
+            //no image
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+            dispatch_async(queue, ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIImage *noImageImage = [UIImage imageNamed:@"noImage.png"];
+                    entry.imageData = UIImageJPEGRepresentation(noImageImage,0.5);
+                    entryImage.image = [self centerCropImage:noImageImage];
+                });
+            });
         }
         
 
