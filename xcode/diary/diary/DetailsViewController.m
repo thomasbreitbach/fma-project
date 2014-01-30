@@ -58,7 +58,7 @@
         self.image.image = self.imageI;
          NSLog(@"img schon da");
         
-    }else{
+    }else if(![self.imagePath isEqualToString:@""]){
         //download
         NSLog(@"download");
         [self.imageLoadingTitle setText:@"Foto wird geladen!"];
