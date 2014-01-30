@@ -174,7 +174,7 @@
         entryTitle.text = @"Neuer Eintrag";
         
         UILabel *entryDate = (UILabel *)[cell viewWithTag:102];
-        entryDate.text = @"";
+        entryDate.text = @"Was gibt es neues?";
         
     }
     
