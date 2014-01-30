@@ -85,7 +85,7 @@
 {
     float fH = self.view.frame.size.height;
     float fW = self.view.frame.size.width;
-    float ofH = 900;
+    float ofH = 800;
     
     self.remote = [[Remote alloc] init];
     self.remote.delegate = self;
@@ -115,7 +115,7 @@
     self.scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, fW, fH)];
     self.scroll.pagingEnabled = false;
     self.edgesForExtendedLayout = UIRectEdgeAll;
-    self.scroll.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame)+20, 0);
+    self.scroll.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame)+10, 0);
     
     self.rootview = [[UIView alloc] initWithFrame:CGRectMake(0,0,fW, ofH)];
     
