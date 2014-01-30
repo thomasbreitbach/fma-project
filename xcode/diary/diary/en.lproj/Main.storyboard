@@ -10,9 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="NewEntryID" title="First" id="CZ4-MO-1fc" customClass="NewEntryController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa" userLabel="rootview">
-
-                        <rect key="frame" x="0.0" y="64" width="320" height="2614"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2614"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" id="Wem-oN-R53">
