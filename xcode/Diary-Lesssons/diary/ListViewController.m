@@ -284,37 +284,39 @@ static BOOL fetchItems = NO;
         
     }
 }
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
  
 /*
- * Die Methode zum Laden der Tagebucheinträge
+ * Die Methode zum snychronen Laden der Tagebucheinträge
  * Da diese Methode die zentrale Stelle zum Laden der Items ist,
  * ist es sinnvoll, hier die Abfrage für das Testen der Internetverbindung, zu erstellen.
  *
  * Da diese Methode auch nach jedem neuen Eintrag, aufgerufen wird.
  * Ist das Internet nicht vorhanden, sieht man die bisher geladenen Einträge und die App läuft regulär weiter
  **/
--(void)getItems {
-
-    
-    if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
-    {
-        RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
-        NSArray *d                = [remote getEntries:@"1"];
-        CoreDataWrapper *cdw      = [[CoreDataWrapper alloc]init];
-        _entries                  = [cdw getCoreDataObjsFor:d];
+-(void)getItems
+{
+        RemoteSynchronous   *remote = [[RemoteSynchronous alloc] init];
+        NSArray             *d      = [remote getEntries:@"1"];
+        CoreDataWrapper     *cdw    = [[CoreDataWrapper alloc]init];
+        _entries                    = [cdw getCoreDataObjsFor:d];
         
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
-        
-    }else{
-        
-        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [error show];
-
-    }
-    
-    
 }
+
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
 - (IBAction)refresh:(id)sender {
 
     [self getItems];
