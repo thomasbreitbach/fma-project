@@ -285,7 +285,14 @@ static BOOL fetchItems = NO;
     }
 }
  
-
+/*
+ * Die Methode zum Laden der Tagebucheinträge
+ * Da diese Methode die zentrale Stelle zum Laden der Items ist,
+ * ist es sinnvoll, hier die Abfrage für das Testen der Internetverbindung, zu erstellen.
+ *
+ * Da diese Methode auch nach jedem neuen Eintrag, aufgerufen wird.
+ * Ist das Internet nicht vorhanden, sieht man die bisher geladenen Einträge und die App läuft regulär weiter
+ **/
 -(void)getItems {
 
     
