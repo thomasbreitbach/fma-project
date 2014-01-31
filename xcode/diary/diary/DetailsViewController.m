@@ -51,7 +51,6 @@
     self.textTitle.text = @"Liebes Tagebuch...";
     [self.text setText:self.textT];
     [self.text setEditable:false];
-    //self.text.frame = CGRectMake(20,20,200,800);
     [self.textTitle sizeToFit];
     
     if(self.imageI){
