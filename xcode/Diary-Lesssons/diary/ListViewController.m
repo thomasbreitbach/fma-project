@@ -300,6 +300,8 @@ static BOOL fetchItems = NO;
  * Da diese Methode auch nach jedem neuen Eintrag, aufgerufen wird.
  * Ist das Internet nicht vorhanden, sieht man die bisher geladenen Einträge und die App läuft regulär weiter
  **/
+
+
 -(void)getItems
 {
         RemoteSynchronous   *remote = [[RemoteSynchronous alloc] init];
