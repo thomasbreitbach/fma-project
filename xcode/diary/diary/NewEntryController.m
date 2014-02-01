@@ -268,7 +268,7 @@
         //send json data
         self.connection = [self.remote postEntry:1 :json];
     }else{
-        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Sever ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Server ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
     }
 }

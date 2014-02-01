@@ -301,7 +301,7 @@ static BOOL fetchItems = NO;
         
     }else{
         
-        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Severst nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Server ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
 
     }
