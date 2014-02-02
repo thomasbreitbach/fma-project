@@ -11,7 +11,7 @@
 
 
 
-@interface ListViewController : UITableViewController{
+@interface ListViewController : UITableViewController<NSURLConnectionDataDelegate>{
    
 }
 

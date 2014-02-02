@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 
-@interface NewEntryController : UIViewController<NSURLConnectionDelegate, UITextViewDelegate>
+@interface NewEntryController : UIViewController<NSURLConnectionDataDelegate, UITextViewDelegate>
 {
      int   selectedMood;
 }
