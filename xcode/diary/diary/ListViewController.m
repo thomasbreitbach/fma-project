@@ -14,8 +14,6 @@
 #import "Remote.h"
 #import "CoreDataWrapper.h"
 
-#define TEST_URL @"http://projects.drewiss.de/fma/rest/books/1/entries"
-
 static BOOL fetchItems = NO;
 
 @interface ListViewController ()
