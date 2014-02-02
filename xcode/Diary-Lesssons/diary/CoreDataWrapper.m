@@ -101,11 +101,15 @@
         }
     }
     
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:nil];
-    NSString* jsonString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+    // TODO: Obj(NSMutableDictionary *jsonDict) to JSON (NSData* jsonData)
+    
+    //NSData* jsonData = ....
+    NSData* jsonData = nil; // TODO
+    
+    //NSString* jsonString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
     
     //NSLog(@"%@",jsonData);
-    NSLog(@"%@",jsonString);
+    //NSLog(@"%@",jsonString);
     
     return jsonData;
 }
