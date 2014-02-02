@@ -239,7 +239,7 @@
 
 -(void)saveIt
 {
-    if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
+    if(false)
     {
         //CONSTRUCT ENTRY OBJECT TO SEND
         Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
@@ -267,8 +267,9 @@
         
         //send json data
         self.connection = [self.remote postEntry:1 :json];
+        
     }else{
-        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Sever ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Server ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
     }
 }

@@ -158,22 +158,15 @@ static BOOL fetchItems = NO;
             
             // download the image
             // creating the download queue
-            dispatch_queue_t downloadQueue=dispatch_queue_create("thumbnailImage", NULL);
             
-            dispatch_async(downloadQueue, ^{
-                
-                UIImage *downloadedImage = [self.remote getImage:entry.image_path];
-                
-                //Need to go back to the main thread since this is UI related
-                dispatch_async(dispatch_get_main_queue(), ^{
+            // TODO:
+            
+            // store the downloaded image
+            //entry.imageData = UIImageJPEGRepresentation(downloadedImage,0.7);
                     
-                    // store the downloaded image
-                    entry.imageData = UIImageJPEGRepresentation(downloadedImage,0.7);
-                    
-                    // update UI
-                    entryImage.image = [self centerCropImage:downloadedImage];
-                });
-            });
+            // update UI
+            //entryImage.image = [self centerCropImage:downloadedImage];
+            
             
         }else{
             //no image
@@ -304,6 +297,11 @@ static BOOL fetchItems = NO;
 
 -(void)getItems
 {
+    
+    //TODO: Internetverbindung vorhanden?
+    
+    if (false) {
+    
         RemoteSynchronous   *remote = [[RemoteSynchronous alloc] init];
         NSArray             *d      = [remote getEntries:@"1"];
         CoreDataWrapper     *cdw    = [[CoreDataWrapper alloc]init];
@@ -311,6 +309,12 @@ static BOOL fetchItems = NO;
         
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
+        
+    }else{
+        
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Server ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [error show];
+    }
 }
 
 
@@ -320,7 +324,7 @@ static BOOL fetchItems = NO;
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 - (IBAction)refresh:(id)sender {
-
+    
     [self getItems];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];

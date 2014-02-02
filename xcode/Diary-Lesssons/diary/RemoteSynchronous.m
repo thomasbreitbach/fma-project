@@ -23,12 +23,19 @@
  *  GET REQUESTS
  */
 -(NSArray*) get:(NSURL *)url{
-    NSData *theData = [NSData dataWithContentsOfURL:url];
+   
+    // TODO: GET Data from URL
+    //NSData *theData = ....
     NSError *theError = nil;
-    NSArray *theResult = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
+    
+    // TODO: JSONSerialization
+    //NSArray *theResult = ....
     
     if(theError == nil){
-        return theResult;
+        
+        // return theResult; // TODO:
+        return nil; // TODO
+        
     }else{
         NSLog(@"get-request to %@ error:%@", url, theError);
         return nil;
@@ -43,6 +50,7 @@
 }
 
 -(NSArray *)getEntries:(NSString *)bookId{
+    
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@", BASE_URL, BOOKS, bookId, ENTRIES];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
@@ -68,10 +76,5 @@
     NSLog(@"BILD %@", result);
     return result;
 }
-
-/*
- * POST REQUESTS
- */
-
 
 @end

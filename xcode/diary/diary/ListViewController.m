@@ -156,6 +156,7 @@ static BOOL fetchItems = NO;
             
             // download the image
             // creating the download queue
+           
             dispatch_queue_t downloadQueue=dispatch_queue_create("thumbnailImage", NULL);
             
             dispatch_async(downloadQueue, ^{
@@ -175,6 +176,7 @@ static BOOL fetchItems = NO;
             
         }else{
             //no image
+            
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
             dispatch_async(queue, ^{
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -275,7 +277,7 @@ static BOOL fetchItems = NO;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         NSInteger id = [[[_entries objectAtIndex:indexPath.row]id] intValue];
-         NSLog(@"%d",id);
+        // NSLog(@"%d",id);
         
         [self.remoteAsync deleteEntry:1 :id];
         
