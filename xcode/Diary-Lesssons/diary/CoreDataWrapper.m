@@ -54,8 +54,8 @@
         
         NSString *str = [key objectForKey:@"date"];
         NSLog(@"%@",str);
-         NSLog(@"%@",[df dateFromString: str]);
-         entry.date = [df dateFromString: str];
+        NSLog(@"%@",[df dateFromString: str]);
+        entry.date = [df dateFromString: str];
         
         entry.id = [key objectForKey:@"id"];
         entry.mood = [NSNumber numberWithInteger: [[key objectForKey:@"mood"] integerValue]];
