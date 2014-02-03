@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>1195C966-F3F1-490D-8007-654CBD24BFDE</string>
+	<string>E324B267-A23D-494D-BC4B-3839152F966A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>diary</string>
+	<string>XMLParser</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>922CF2CC-3ECA-4CF2-B6F8-CE53D6C615B5</key>
 		<string>https://github.com/andrewissner/fma-project.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>xcode/diary/diary.xcodeproj/project.xcworkspace</string>
+	<string>xcode/XMLParser/XMLParser.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>922CF2CC-3ECA-4CF2-B6F8-CE53D6C615B5</key>
