@@ -266,16 +266,7 @@ static BOOL fetchItems = NO;
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        NSInteger id = [[[_entries objectAtIndex:indexPath.row]id] intValue];
-         NSLog(@"%d",id);
-        
-        [self.remoteAsync deleteEntry:1 :id];
-        
-        
-    }
+
 }
 /*------------------------------------------------------------------------------------------------------------------------*/
 
