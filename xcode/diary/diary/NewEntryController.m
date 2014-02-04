@@ -63,9 +63,7 @@
 }
 
 - (IBAction)pickTheImage:(id)sender
-{
-    
-    
+{    
     // Declare the view controller
     APLViewController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];
     
@@ -76,9 +74,6 @@
     
     
     [self.navigationController pushViewController:aplVC animated:YES];
-    
-    //[self presentModalViewController:aplVC animated:YES];
-    
 }
 
 - (void)viewDidLoad
@@ -246,13 +241,10 @@
                                                      inManagedObjectContext:self.managedObjectContext];
         entry.title = self.titleInput.text;
         entry.date = self.datePicker.date;
-        //entry.id = [key objectForKey:@"id"]; //TODO ID erzeugen
         entry.mood = [NSNumber numberWithInteger: selectedMood];
         entry.text = self.textInput.text;
         //entry.locationsLati = [key objectForKey:@"location_lati"];
         //entry.locationsLong = [key objectForKey:@"location_long"];
-        //self.theImage
-        //entry.image = @"";
         
         if([self.uiImage CGImage] != nil){
             self.theImageFilename = [NSString stringWithFormat:@"%@.jpg", [[NSUUID UUID] UUIDString]];
@@ -282,7 +274,7 @@
     [alert show];
 }
 
-//PROTOCOL METHODS
+//DELEGATE PROTOCOL METHODS
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     _responseData = [[NSMutableData alloc] init];
 }
@@ -297,20 +289,21 @@
     if(connection == self.connection){
         NSLog(@"connection = normal");
         
-        //send image / multipart data
+        //prüfe, ob ein Bild ausgewählt wurde
         if([self.uiImage CGImage] != nil){
-            //get entryid
+            //bild wurde gewählt
             NSLog(@"image != null");
             NSLog(@"filename: %@", _theImageFilename);
             
-            //fire request
+            //fire asynchronous request via Remote-Class
             self.multipartConnection = [self.remote postImage:self.theImage.image withFilename:self.theImageFilename];
         }else{
+            //kein bild ausgewählt --> zeige alert
             [self showAlert];
         }
     }
     if(connection == self.multipartConnection){
-        
+        //multipart connection
         NSLog(@"connection = multipart");
         
         self.theImageFilename = nil;
@@ -318,13 +311,10 @@
     }
  
     
-    // Declare the view controller
-    //ListViewController *aplVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ImagePickerControllerID"];
-    
-    //[self presentModalViewController:aplVC animated:YES];
-    
+    //Einträge sollen beim Wechsel zum ListViewController neu geladen werden
     [ListViewController setFetchItems:YES];
-    
+
+    //wechsle zum ListViewController
     self.tabBarController.selectedIndex = 0;
 }
 
@@ -342,8 +332,13 @@
     return nil;
 }
 
+
+//TEXT VIEW METHODS
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
+    //simuliere das verhalten eines placeholders (text field)
+    //placeholders in TextView wird von Apple nicht out of the
+    //box unterstützt
     if(self.textInput.textColor == [UIColor lightGrayColor])
     {
         self.textInput.text = @"";
@@ -355,6 +350,9 @@
 
 -(void) textViewDidEndEditing:(UITextView *)textView
 {
+    //simuliere das verhalten eines placeholders (text field)
+    //placeholders in TextView wird von Apple nicht out of the
+    //box unterstützt
     if(self.textInput.text.length == 0){
         self.textInput.textColor = [UIColor lightGrayColor];
         self.textInput.text = STD_TEXTVIEW_TEXT;
