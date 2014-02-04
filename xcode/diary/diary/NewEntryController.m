@@ -234,34 +234,44 @@
 
 -(void)saveIt
 {
-    if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
-    {
-        //CONSTRUCT ENTRY OBJECT TO SEND
-        Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
-                                                     inManagedObjectContext:self.managedObjectContext];
-        entry.title = self.titleInput.text;
-        entry.date = self.datePicker.date;
-        entry.mood = [NSNumber numberWithInteger: selectedMood];
-        entry.text = self.textInput.text;
-        //entry.locationsLati = [key objectForKey:@"location_lati"];
-        //entry.locationsLong = [key objectForKey:@"location_long"];
-        
-        if([self.uiImage CGImage] != nil){
-            self.theImageFilename = [NSString stringWithFormat:@"%@.jpg", [[NSUUID UUID] UUIDString]];
-            entry.image_path = self.theImageFilename;
-        }
-        
-        NSLog(@"%@",entry);
-        
-        //object to json
-        CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
-        NSData *json = [cdw getJSONFor:entry];
-        
-        //send json data
-        self.connection = [self.remote postEntry:1 :json];
-    }else{
-        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Server ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    if(self.titleInput.text.length == 0 || [self.textInput.text  isEqualToString:STD_TEXTVIEW_TEXT] || self.textInput.text.length == 0){
+        //benutzer hat keinen Titel oder keinen Text oder beides nicht eingegeben
+        UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Keine Eingabe" message:@"Bitte gib zuerst einen Titel und einen Text ein und versuche es dann erneut!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [error show];
+        
+    }else{
+        
+        // prüfe die erreichbarkeit des servers
+        if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
+        {
+            //CONSTRUCT ENTRY OBJECT TO SEND
+            Entry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"Entry"
+                                                         inManagedObjectContext:self.managedObjectContext];
+            entry.title = self.titleInput.text;
+            entry.date = self.datePicker.date;
+            entry.mood = [NSNumber numberWithInteger: selectedMood];
+            entry.text = self.textInput.text;
+            //entry.locationsLati = [key objectForKey:@"location_lati"];
+            //entry.locationsLong = [key objectForKey:@"location_long"];
+            
+            if([self.uiImage CGImage] != nil){
+                self.theImageFilename = [NSString stringWithFormat:@"%@.jpg", [[NSUUID UUID] UUIDString]];
+                entry.image_path = self.theImageFilename;
+            }
+            
+            NSLog(@"%@",entry);
+            
+            //object to json
+            CoreDataWrapper *cdw = [[CoreDataWrapper alloc]init];
+            NSData *json = [cdw getJSONFor:entry];
+            
+            //send json data
+            self.connection = [self.remote postEntry:1 :json];
+        }else{
+            UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Server ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [error show];
+        }
+ 
     }
 }
 
