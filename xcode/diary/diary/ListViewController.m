@@ -79,7 +79,8 @@ static BOOL fetchItems = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
-{ 
+{
+    //prüfe, ob die Daten (Einträge) neu geladen werden sollen
     if(fetchItems){
         [self getItems];
         fetchItems = NO;
@@ -108,7 +109,6 @@ static BOOL fetchItems = NO;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"%d",indexPath.row);
     
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -133,8 +133,7 @@ static BOOL fetchItems = NO;
         
         
         // img stuff
-        
-         UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
+        UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
         
         if (entry.imageData) {
             // image bereits geladen
@@ -143,10 +142,8 @@ static BOOL fetchItems = NO;
             NSLog(@"bild schon da");
             
         }else if (![entry.image_path isEqualToString:@""]){
-            
+            // Image noch nicht geladen und der Image-Path ist nicht leer
             NSLog(@"bild wird geladen");
-            
-            // image muss geladen werden
             
             //placeholder setzen
             UIImage *palceholderImage = [UIImage imageNamed:@"loading.gif"];
@@ -156,27 +153,28 @@ static BOOL fetchItems = NO;
             
             // download the image
             // creating the download queue
-           
             dispatch_queue_t downloadQueue=dispatch_queue_create("thumbnailImage", NULL);
             
             dispatch_async(downloadQueue, ^{
                 
                 UIImage *downloadedImage = [self.remote getImage:entry.image_path];
                 
-                //Need to go back to the main thread since this is UI related
+                //Main-Queue aufrufen, um das UI anpassen zu können
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    // store the downloaded image
+                    //bild als JPEG im Core-Data Objekt speichern
                     entry.imageData = UIImageJPEGRepresentation(downloadedImage,0.7);
                     
-                    // update UI
+                    //update UI
                     entryImage.image = [self centerCropImage:downloadedImage];
                 });
             });
             
         }else{
             //no image
+            NSLog(@"Kein Bild vorhanden --> Std.-Bild");
             
+            // Standardbild setzen
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
             dispatch_async(queue, ^{
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -190,7 +188,7 @@ static BOOL fetchItems = NO;
 
         
     } else {
-        // eintrag für neuen tagebuch eintrag
+        // Listeneintrag für neuen tagebucheintrag
         
         UIImageView *entryImage = (UIImageView *)[cell viewWithTag:100];
         entryImage.image = [UIImage imageNamed:@"plus.png"];
@@ -203,7 +201,7 @@ static BOOL fetchItems = NO;
         
     }
     
-       return cell;
+    return cell;
 }
 
 // This method is run when the user taps the row in the tableview
