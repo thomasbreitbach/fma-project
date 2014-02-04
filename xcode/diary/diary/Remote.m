@@ -2,6 +2,12 @@
 //  Remote.m
 //  diary
 //
+//  ASYNCHRONOUS
+//
+//  Klasse bildet serverseitige API nach und baut asynchrone Verbindungen
+//  mit Hilfe der NSURLConnection Klasse zum Server auf
+//
+//
 //  Created by Medien on 15.01.14.
 //  Copyright (c) 2014 FMA. All rights reserved.
 //
@@ -9,14 +15,17 @@
 #import "Remote.h"
 #import "MIMEMultipartBody.h"
 
+@interface Remote ()
+
+
+@end
+
 @implementation Remote
 
 #define BASE_URL    @"http://projects.drewiss.de/fma/rest"
 #define UPLOAD_URL  (BASE_URL @"/upload.php")
 #define BOOKS       @"books"
 #define ENTRIES     @"entries"
-
-NSMutableData *_responseData;
 
 
 -(id)init{
@@ -27,33 +36,35 @@ NSMutableData *_responseData;
 /*
  *  GET REQUESTS
  */
--(void) get:(NSURL *)url{
+-(NSURLConnection *) get:(NSURL *)url{
     //HIER AUF INTERNET TESTEN
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    return conn;
 }
 
--(void)getBook:(NSInteger *) bookId{
+-(NSURLConnection *) getBook:(NSInteger *) bookId{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d", BASE_URL, BOOKS, (int)bookId];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
-    [self get:url];
+    return [self get:url];
 }
 
 
--(void)getEntries:(NSInteger *)bookId{
+-(NSURLConnection *) getEntries:(NSInteger *)bookId{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@", BASE_URL, BOOKS, (int)bookId, ENTRIES];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
-    [self get:url];
+    return [self get:url];
 }
 
 
--(void)getEntry:(NSInteger *)bookId :(NSInteger *) entryId{
+-(NSURLConnection *) getEntry:(NSInteger *)bookId :(NSInteger *) entryId{
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%d/%@/%d", BASE_URL, BOOKS, (int)bookId, ENTRIES, (int)entryId];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
-    [self get:url];
+    return [self get:url];
 }
 
 
@@ -61,7 +72,7 @@ NSMutableData *_responseData;
  * POST REQUESTS
  */
 -(NSURLConnection *) post:(NSURL *)url :(NSData *) requestBodyData{
-    //HIER TESTEN->ANDRE
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     request.HTTPMethod = @"POST";

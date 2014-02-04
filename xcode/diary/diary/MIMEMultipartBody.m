@@ -2,11 +2,17 @@
 //  MIMEMultipartBody.m
 //  diary
 //
+//  Klasse stellt Methoden zur Verfügung, um Multipart POST-Requests
+//  durchzuführen, wie sie Beispielsweise beim Datei-Upload verwendung
+//  finden.
+//
 //  Created by Medien on 29.01.14.
 //  Copyright (c) 2014 FMA. All rights reserved.
 //
 //
 /*
+ //EXAMPLE REQUEST-BODY
+ 
  
  10003
  ------MIMEMultipartBodya3a99b9c

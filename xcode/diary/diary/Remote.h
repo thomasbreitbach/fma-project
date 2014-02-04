@@ -13,9 +13,9 @@
 -(id)init;
 
 //GET
--(void)getBook:(NSInteger *) bookId;
--(void)getEntries:(NSInteger *)bookId;
--(void)getEntry:(NSInteger *)bookId :(NSInteger *) entryId;
+-(NSURLConnection *) getBook:(NSInteger *) bookId;
+-(NSURLConnection *) getEntries:(NSInteger *)bookId;
+-(NSURLConnection *) getEntry:(NSInteger *)bookId :(NSInteger *) entryId;
 
 //POST
 -(NSURLConnection *) postBook:(NSData *) requestBodyData;

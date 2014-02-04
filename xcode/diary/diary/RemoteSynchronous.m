@@ -2,6 +2,13 @@
 //  Remote.m
 //  diary
 //
+//  SYNCHRONOUS
+//
+//  Klasse bildet serverseitige GET-Requests nach
+//  Hierzu wird eine synchrone Verbindung mit Hilfe der
+//  dataWithContentsOfURL aufgebaut und die Daten als NSArray zurückgegeben
+//
+//
 //  Created by Medien on 15.01.14.
 //  Copyright (c) 2014 FMA. All rights reserved.
 //
@@ -68,10 +75,5 @@
     NSLog(@"BILD %@", result);
     return result;
 }
-
-/*
- * POST REQUESTS
- */
-
 
 @end
