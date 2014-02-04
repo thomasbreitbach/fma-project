@@ -37,7 +37,7 @@
     return _managedObjectContext;
 }
 
-
+// JSON to core-data objects
 -(NSMutableArray*)getCoreDataObjsFor:(NSArray *)dictionary{
     
     NSMutableArray *entries = [[NSMutableArray alloc] init];
@@ -75,6 +75,7 @@
     return entries;
 }
 
+// core-data object to JSON
 -(NSData*)getJSONFor:(Entry *)entry{
     
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
