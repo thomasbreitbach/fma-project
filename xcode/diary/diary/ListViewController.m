@@ -304,7 +304,7 @@ static BOOL fetchItems = NO;
 
 
 
-//PROTOCOL METHODS
+//PROTOCOL METHODS: Löschen der Einträge läuft über das Delegate Protokoll
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     _responseData = [[NSMutableData alloc] init];
 }
