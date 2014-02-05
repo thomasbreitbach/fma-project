@@ -30,6 +30,6 @@
 -(void) deleteBook:(NSInteger *) book_id;
 -(void) deleteEntry:(NSInteger *) book_id :(NSInteger *) entry_id;
 
-@property (weak, nonatomic) UIViewController *delegate;
+@property (strong, nonatomic) UIViewController *delegate;
 
 @end

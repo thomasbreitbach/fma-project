@@ -185,8 +185,6 @@ static BOOL fetchItems = NO;
             });
         }
         
-
-        
     } else {
         // Listeneintrag für neuen tagebucheintrag
         
@@ -200,20 +198,15 @@ static BOOL fetchItems = NO;
         entryDate.text = @"Was gibt es neues?";
         
     }
-    
     return cell;
 }
 
 // This method is run when the user taps the row in the tableview
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if([tableView numberOfRowsInSection:0] == indexPath.row+1){
         self.tabBarController.selectedIndex = 1;
-        
     }else{
-        
-        
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         // Declare the view controller
@@ -254,10 +247,7 @@ static BOOL fetchItems = NO;
         detailsVC.imagePath = [[_entries objectAtIndex:indexPath.row]image_path];
         
         [self.navigationController pushViewController:detailsVC animated:YES];
-        
     }
-    
-    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -275,11 +265,9 @@ static BOOL fetchItems = NO;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         NSInteger id = [[[_entries objectAtIndex:indexPath.row]id] intValue];
-        // NSLog(@"%d",id);
         
+        //delete items asynchron
         [self.remoteAsync deleteEntry:1 :id];
-        
-        
     }
 }
  
@@ -289,6 +277,7 @@ static BOOL fetchItems = NO;
     
     if(([Reachability reachabilityWithHostname:@"www.drewiss.de"]).isReachable)
     {
+        //fetch items synchron
         RemoteSynchronous *remote = [[RemoteSynchronous alloc] init];
         NSArray *d                = [remote getEntries:@"1"];
         CoreDataWrapper *cdw      = [[CoreDataWrapper alloc]init];
@@ -296,7 +285,7 @@ static BOOL fetchItems = NO;
         
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
-        
+    
     }else{
         
         UIAlertView *error = [[UIAlertView alloc]initWithTitle:@"Internet Error" message:@"Eine Verbindung zum Server ist nicht möglich!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -326,7 +315,7 @@ static BOOL fetchItems = NO;
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     //request is complete! parse now
-    NSLog(@"foo");
+    NSLog(@"connectionDidFinishLoading");
     
     [self getItems];
     [self.tableView reloadData];

@@ -15,5 +15,6 @@
    
 }
 
- +(void) setFetchItems:(BOOL) fetch;
++(void) setFetchItems:(BOOL) fetch;
+
 @end
